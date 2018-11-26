@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GymsHouse.Models.Location>
+
+@{
+    ViewData["Title"] = "Locations List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 class="text-info">Locations List</h2>
+<p>
+    @Html.Partial("_CreateButtonPartial")
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="warning">
+            <th>Location Name</th>
+            <th>Center Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Center.Name)
+            </td>
+            @Html.Partial("_TableButtonPartial", item.ID)
+        </tr>
+        }
+    </tbody>
+</table>

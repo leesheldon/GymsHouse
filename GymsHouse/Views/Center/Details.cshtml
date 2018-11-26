@@ -1,0 +1,63 @@
+﻿@model GymsHouse.Models.Center
+
+@{
+    ViewData["Title"] = "Center Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h2 class="text-info">Center Details</h2>
+    <br />
+
+    <div class="form-horizontal row">
+        <div class="col-md-8">
+            <field-set disabled>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Name" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Name" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Address" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Address" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="PhoneNumber" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="PhoneNumber" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Email" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Email" disabled class="form-control" />
+                    </div>
+                </div>
+            </field-set>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <img src="@Model.Picture_1"
+                 style="border-radius: 5px; border: 1px solid #bbb9b9; width: 100%;" />
+        </div>
+
+    </div>
+    <br />
+    <div class="container row">
+        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+</div>

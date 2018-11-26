@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Admin</title>
+
+    <!-- ============= Lesnar style ============= -->
+    <!-- Bootstrap -->
+    <link href="~/lesnarStyle/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template  CSS Area -->
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/style.css">
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/color.css">
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/css-menu/css-menu.css">
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/custom-responsive.css">
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/responsive.css">
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/hover.css">
+
+    <!-- Fraction Slider CSS Area -->
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/fraction-slide/slider-style.css" type="text/css" />
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/fraction-slide/fractionslider.css" type="text/css" />
+
+    <!-- Owl Carosel CSS Area -->
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/owl-carousel/owl.carousel.css" type="text/css" />
+    <link rel="stylesheet" href="~/lesnarStyle/assets/css/owl-carousel/owl.theme.css" type="text/css" />
+
+    <!-- FontAwesome CSS Area -->
+    <link href="~/lesnarStyle/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+
+    @RenderSection("Styles", false)
+
+</head>
+<body>
+    <div id="preloader"></div>
+
+    @Html.Partial("_HeaderAndSliderAdminPartial")
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+         
+    
+    <!-- ============= Lesnar style ============= -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/lesnarStyle/assets/js/jquery.js"></script>
+    <script src="~/lesnarStyle/assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Scroling Header JS Area-->
+    <script src="~/lesnarStyle/assets/js/classie.js"></script>
+    <script src="~/lesnarStyle/assets/js/cbpAnimatedHeader.js"></script>
+    <script src="~/lesnarStyle/assets/js/jquery.stellar.js"></script>
+
+    <script src="~/lesnarStyle/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+
+    <!-- Revolution Slider Tools -->
+    <script src="~/lesnarStyle/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- Revolution Slider -->
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/lesnarStyle/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+    <!-- Owl Carosel JS Area -->
+    <script src="~/lesnarStyle/assets/js/owl.carousel.js"></script>
+    <!-- CSS Menu JS Area -->
+    <script src="~/lesnarStyle/assets/js/css-menu.js"></script>
+    <!-- Shuffle Plugin JS Area -->
+    <script src="~/lesnarStyle/assets/js/jquery.shuffle.min.js"></script>
+    <!-- Comming Soon Countdown JS Area -->
+    <script src="~/lesnarStyle/assets/js/jquery.countdown.min.js"></script>
+    <!-- Counter Section JS Area -->
+    <script src="~/lesnarStyle/assets/js/jquery.counterup.min.js"></script>
+    <script src="~/lesnarStyle/assets/js/counter.js"></script>
+    <script src="~/lesnarStyle/assets/js/waypoints.min.js"></script>
+
+    <!-- mix it js -->
+    <script src="~/lesnarStyle/assets/js/jquery.mixitup.min.js"></script>
+    <!-- Lesnar Custom JS Area -->
+    <script src="~/lesnarStyle/assets/js/custom.js"></script>
+
+
+    @RenderSection("Scripts", false)
+</body>
+</html>

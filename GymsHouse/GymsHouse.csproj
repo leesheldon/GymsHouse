@@ -1,0 +1,181 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>aspnet-GymsHouse-6425FED3-D4B0-4C0B-9042-208680FED9E0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Photos\**" />
+    <Compile Remove="staminaStyle\**" />
+    <Compile Remove="wwwroot\Photos\Schedule\**" />
+    <Compile Remove="wwwroot\zoonxStyle\**" />
+    <Compile Remove="zoonxStyle\**" />
+    <Content Remove="Photos\**" />
+    <Content Remove="staminaStyle\**" />
+    <Content Remove="wwwroot\Photos\Schedule\**" />
+    <Content Remove="wwwroot\zoonxStyle\**" />
+    <Content Remove="zoonxStyle\**" />
+    <EmbeddedResource Remove="Photos\**" />
+    <EmbeddedResource Remove="staminaStyle\**" />
+    <EmbeddedResource Remove="wwwroot\Photos\Schedule\**" />
+    <EmbeddedResource Remove="wwwroot\zoonxStyle\**" />
+    <EmbeddedResource Remove="zoonxStyle\**" />
+    <None Remove="Photos\**" />
+    <None Remove="staminaStyle\**" />
+    <None Remove="wwwroot\Photos\Schedule\**" />
+    <None Remove="wwwroot\zoonxStyle\**" />
+    <None Remove="zoonxStyle\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20181125104329_initialDBSetup.cs" />
+    <Compile Remove="Data\Migrations\20181125104329_initialDBSetup.Designer.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lesnarStyle\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\lesnarStyle\assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\lesnarStyle\assets\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\lesnarStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\lesnarStyle\assets\js\cbpAnimatedHeader.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\classie.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\counter.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\css-menu.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\custom.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\jquery.countdown.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\jquery.counterup.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\jquery.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\jquery.mixitup.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\jquery.shuffle.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\jquery.stellar.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\map.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\owl.carousel.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\validate.js" />
+    <None Include="wwwroot\lesnarStyle\assets\js\waypoints.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\fonts\revicons\revicons90c6.svg" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\extensions\revolution.extension.video.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\jquery.themepunch.revolution.min.js" />
+    <None Include="wwwroot\lesnarStyle\assets\revolution\js\jquery.themepunch.tools.min.js" />
+    <None Include="wwwroot\staminaStyle\css\.DS_Store" />
+    <None Include="wwwroot\staminaStyle\css\bootstrap.css.map" />
+    <None Include="wwwroot\staminaStyle\css\style.css.map" />
+    <None Include="wwwroot\staminaStyle\fonts\.DS_Store" />
+    <None Include="wwwroot\staminaStyle\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\staminaStyle\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\staminaStyle\fonts\icomoon\icomoon.svg" />
+    <None Include="wwwroot\staminaStyle\js\.DS_Store" />
+    <None Include="wwwroot\staminaStyle\js\bootstrap.min.js" />
+    <None Include="wwwroot\staminaStyle\js\google_map.js" />
+    <None Include="wwwroot\staminaStyle\js\jquery.countTo.js" />
+    <None Include="wwwroot\staminaStyle\js\jquery.easing.1.3.js" />
+    <None Include="wwwroot\staminaStyle\js\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\staminaStyle\js\jquery.min.js" />
+    <None Include="wwwroot\staminaStyle\js\jquery.stellar.min.js" />
+    <None Include="wwwroot\staminaStyle\js\jquery.waypoints.min.js" />
+    <None Include="wwwroot\staminaStyle\js\magnific-popup-options.js" />
+    <None Include="wwwroot\staminaStyle\js\main.js" />
+    <None Include="wwwroot\staminaStyle\js\modernizr-2.6.2.min.js" />
+    <None Include="wwwroot\staminaStyle\js\owl.carousel.min.js" />
+    <None Include="wwwroot\staminaStyle\js\respond.min.js" />
+    <None Include="wwwroot\staminaStyle\sass\.DS_Store" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_alerts.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_background-variant.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_border-radius.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_buttons.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_center-block.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_clearfix.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_forms.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_gradients.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_grid-framework.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_grid.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_hide-text.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_image.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_labels.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_list-group.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_nav-divider.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_nav-vertical-align.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_opacity.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_pagination.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_panels.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_progress-bar.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_reset-filter.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_reset-text.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_resize.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_responsive-visibility.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_size.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_tab-focus.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_table-row.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_text-emphasis.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_text-overflow.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\mixins\_vendor-prefixes.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_alerts.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_badges.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_breadcrumbs.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_button-groups.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_buttons.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_carousel.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_close.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_code.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_component-animations.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_dropdowns.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_forms.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_glyphicons.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_grid.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_input-groups.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_jumbotron.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_labels.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_list-group.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_media.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_mixins.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_modals.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_navbar.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_navs.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_normalize.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_pager.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_pagination.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_panels.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_popovers.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_print.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_progress-bars.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_responsive-embed.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_responsive-utilities.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_scaffolding.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_tables.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_theme.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_thumbnails.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_tooltip.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_type.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_utilities.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_variables.scss" />
+    <None Include="wwwroot\staminaStyle\sass\bootstrap\_wells.scss" />
+    <None Include="wwwroot\staminaStyle\sass\style.scss" />
+    <None Include="wwwroot\staminaStyle\sass\_bootstrap-compass.scss" />
+    <None Include="wwwroot\staminaStyle\sass\_bootstrap-mincer.scss" />
+    <None Include="wwwroot\staminaStyle\sass\_bootstrap-sprockets.scss" />
+  </ItemGroup>
+
+</Project>

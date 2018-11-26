@@ -1,0 +1,100 @@
+[
+  {
+    "DaysOfWeek": "Monday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Tuesday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Wednesday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Thursday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Friday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Saturday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Sunday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrqgOLs07ZkbapP4EGi"
+  },
+  {
+    "DaysOfWeek": "Monday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  },
+  {
+    "DaysOfWeek": "Tuesday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  },
+  {
+    "DaysOfWeek": "Wednesday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  },
+  {
+    "DaysOfWeek": "Thursday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  },
+  {
+    "DaysOfWeek": "Friday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  },
+  {
+    "DaysOfWeek": "Saturday",
+    "From": "07:00AM",
+    "To": "22:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  },
+  {
+    "DaysOfWeek": "Sunday",
+    "From": "07:00AM",
+    "To": "20:00PM",
+    "IsClosed": false,
+    "CenterId": "KrrIkDT19XhPgWo0T0A"
+  }
+]

@@ -1,0 +1,696 @@
+/*Form-control Focus*/
+
+.form-control:focus {
+    border-color: none;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075), 0 0 0px transparent;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075), 0 0 0px transparent;
+}
+
+
+/*Section Title*/
+
+.title-bg {
+    border-bottom: 2px solid #8CCB3F;
+}
+
+.slider-title-border {
+    background: #8CCB3F;
+}
+
+.small-title-border {
+    width: 42px;
+    border-bottom: 3px solid #8CCB3F;
+}
+
+
+/*Header Part*/
+
+.header-serarch-area .btn-default {
+    color: #8CCB3F;
+}
+
+.header-serarch-area .form-control::-webkit-input-placeholder {
+    color: #8CCB3F;
+}
+
+.header-serarch-area .form-control:-moz-placeholder {
+    /* Firefox 18- */
+    color: #8CCB3F;
+}
+
+.header-serarch-area .form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #8CCB3F;
+}
+
+.header-serarch-area .form-control:-ms-input-placeholder {
+    color: #8CCB3F;
+}
+
+
+/*Main Menu Part*/
+
+#cssmenu>ul>li:hover>a, #cssmenu>ul>li.active>a {
+    color: #8CCB3F;
+}
+
+#cssmenu>ul>li.has-sub:hover>a::after {
+    border-color: #8CCB3F;
+}
+
+#cssmenu ul ul li:hover>a, #cssmenu ul ul li a:hover {
+    color: #8CCB3F;
+}
+
+
+/*Fitness Fraction Slider Area*/
+
+.mml-slide-left-button .btn-default span.icon {
+    color: #8CCB3F;
+}
+
+.mml-slide-right-button .btn-default span.icon {
+    color: #8CCB3F !important;
+}
+
+.mml-slide-left-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-slide-right-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-slide-left-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-slide-left-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-slide-right-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-slide-right-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+
+/*Fitness Home Getting Started Area*/
+
+.mml-getting-started-button .btn-default span.icon {
+    color: #8CCB3F;
+}
+
+.mml-getting-started-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-getting-started-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.other-home-header-wraper .mml-header-bottom-fitness-level-title {
+    background: #8CCB3F;
+}
+
+
+/*Fitness Home Classes Area*/
+
+.mml-class-feat a {
+    background: #8CCB3F;
+}
+
+.mml-class-feat-content:hover .mml-class-feat-content-info a {
+    color: #8CCB3F;
+}
+
+.mml-class-feat-content:hover .mml-class-feat-content-image-hover::after {
+    background: #8CCB3F;
+}
+
+
+/*Fitness Discount Area*/
+
+.mml-discount-area {
+    background: #8CCB3F;
+}
+
+.mml-discount-button .btn-default span.icon {
+    color: #8CCB3F;
+}
+
+.mml-discount-button .btn-default:hover span.icon {
+    color: #8CCB3F !important;
+}
+
+.mml-discount-button .btn-default:hover span.text {
+    color: #8CCB3F !important;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-discount-button .btn-default:hover {
+    background: #fff !important;
+    border: 1px solid #8CCB3F !important;
+    color: #8CCB3F !important;
+}
+
+
+/*Course Content Part*/
+
+.mml-courses-main-content .mml-courses .mml-courses-hover-area::before {
+    background: #8CCB3F;
+}
+
+.mml-courses-main-content .mml-courses .right {
+    border-top: 2px solid #8CCB3F;
+}
+
+.mml-courses-main-content .mml-courses .right .left {
+    background: #8CCB3F;
+}
+
+
+/*Team Part*/
+
+
+/*Hover*/
+
+.team-wrap:hover .team-info-wrap::before {
+    background: #8CCB3F;
+}
+
+
+/*Active*/
+
+.team-wrap.team-active .team-info-wrap::before {
+    background: #8CCB3F;
+}
+
+
+/*Testimonial Part*/
+
+.mml-testimonial .content-wrap .content .blq-icon {
+    background: #8CCB3F;
+}
+
+
+/*Pricetable Part*/
+
+
+/*Active*/
+
+.mml-pricetable-area .pricetable .info ul.active {
+    background: #8CCB3F;
+}
+
+.mml-pricetable-area .pricetable .sign-up-link.active {
+    background: #8CCB3F;
+}
+
+
+/*Hover*/
+
+.mml-pricetable-area .pricetable:hover .info ul {
+    background: #8CCB3F;
+}
+
+.mml-pricetable-area .pricetable:hover .sign-up-link {
+    background: #8CCB3F;
+}
+
+
+/*Blog Part*/
+
+.mml-recent-post .recent-post:hover .images::after {
+    background: #8CCB3F;
+}
+
+
+/*Newsletter Part*/
+
+.mml-newletter-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-newletter-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-newletter-button .btn-default span.icon {
+    color: #8CCB3F;
+}
+
+.mml-footer ul li:hover .icon {
+    color: #8CCB3F;
+}
+
+
+/*Footer Part*/
+
+.mml-footer ul li:hover a {
+    color: #8CCB3F;
+}
+
+.mml-footer ul li:hover {
+    color: #8CCB3F;
+}
+
+.footer-copyright-area .social a:hover {
+    color: #8CCB3F;
+    border: 1px solid #8CCB3F;
+}
+
+
+/*Contact Page*/
+
+
+/*Contact Form button area*/
+
+.mml-contact-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-contact-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-contact-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-contact-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-contact-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*Blog Details*/
+
+.mml-blog-post .content ul li, .mml-blog-post .content ul li a, .mml-blog-post .content ul li:hover, .mml-blog-post .content ul li:hover a {
+    color: #8CCB3F;
+}
+
+.mml-blog-post .content blockquote span {
+    color: #8CCB3F;
+}
+
+.mml-blog-post .media-body p span.reply a {
+    color: #8CCB3F;
+}
+
+.mml-blog-post .admin-social-info a:hover {
+    color: #8CCB3F;
+}
+
+
+/*Comments Form button area*/
+
+.mml-comments-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-comments-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-comments-button .btn-default span.text {
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-comments-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-comments-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-comments-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*About Us*/
+
+.mml-fitness-center .content ul li span {
+    color: #8CCB3F;
+}
+
+.mml-fitness-center .content ul li:hover a {
+    color: #8CCB3F;
+}
+
+.feature-class-about:hover .image {
+    border: 8px solid #8CCB3F;
+}
+
+.feature-class-about:hover h6 {
+    color: #8CCB3F;
+}
+
+.feature-class-about:hover .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F;
+}
+
+.mml-video-content-section ul li:hover a {
+    color: #8CCB3F;
+}
+
+.mml-video-content-section ul li:hover span {
+    background: #8CCB3F;
+}
+
+
+/*Contact Form button area*/
+
+.mml-registration-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-registration-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-registration-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-registration-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-registration-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*Sidebar*/
+
+.sidebar-widget ul li:hover a {
+    color: #8CCB3F;
+}
+
+.sidebar-widget ul li:hover span {
+    color: #8CCB3F;
+}
+
+.popular-post-content:hover .content p.title a {
+    color: #8CCB3F;
+}
+
+
+/*Class Page*/
+
+.mml-class-item:hover .image-wrap .image::after {
+    background: #8CCB3F;
+}
+
+.mml-classes-slide-item:hover .image-wrap::after {
+    background: #8CCB3F;
+}
+
+
+/*Class details Sidebar*/
+
+.mml-gallary-item:hover::after {
+    background: #8CCB3F;
+}
+
+.class-details-sidebar-content .sidebar-content .popular-post-content .content {
+    border-left: 2px solid #8CCB3F;
+}
+
+.class-details-sidebar-content .sidebar-content .popular-post-content:hover .image::after {
+    background: #8CCB3F;
+}
+
+
+/*FAQ Content Search box*/
+
+.mml-section-search-option .input-group .input-group-btn .btn-default {
+    background: #8CCB3F;
+    border-color: #8CCB3F;
+}
+
+
+/*Home Counter Table Area*/
+
+.counter-wrap .counter-bg {
+    border-bottom: 5px solid #8CCB3F;
+}
+
+.mml-section-service-hot-line-content a {
+    color: #8CCB3F;
+}
+
+.mml-section-service-hot-line-content a:hover {
+    border: 1px solid #8CCB3F;
+    background: #8CCB3F;
+    ;
+}
+
+
+/*Career Page Sidebar Button*/
+
+.mml-sidebar-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-sidebar-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-sidebar-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-sidebar-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-sidebar-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*Prices Page*/
+
+.affordable-price-wrap .icon span {
+    color: #8CCB3F;
+    border: 2px solid #8CCB3F;
+}
+
+
+/*404 Pages*/
+
+.section-404-bg a:hover {
+    border: 1px solid #8CCB3F;
+    color: #8CCB3F;
+}
+
+
+/*Comming Soon Page*/
+
+.coming-soon-header .page-title h3 {
+    color: #8CCB3F;
+}
+
+.countdown_section {
+    border: 1px solid #8CCB3F;
+    color: #8CCB3F;
+}
+
+.countdown_amount {
+    color: #8CCB3F;
+}
+
+
+/*Galarry V2*/
+
+.mml-bmi-calculator-form .nav-tabs>li.active>a, .mml-bmi-calculator-form .nav-tabs>li.active>a:focus, .mml-bmi-calculator-form .nav-tabs>li.active>a:hover {
+    background-color: #8CCB3F;
+}
+
+.mml-bmi-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-bmi-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-bmi-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-bmi-button .btn-default span.icon {
+    color: #8CCB3F;
+}
+
+
+/*Account Page Log In button area*/
+
+.mml-log-in-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-log-in-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-log-in-button .btn-default span.text {
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-log-in-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-log-in-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-log-in-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*Forgot your login info*/
+
+.mml-forgot-row .content a {
+    color: #8CCB3F;
+}
+
+
+/*Cart Area*/
+
+.mml-porcess-checkout .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-porcess-checkout .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-porcess-checkout .btn-default span.text {
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-porcess-checkout .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-porcess-checkout .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-porcess-checkout .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .mml-proceed-checkout-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .mml-proceed-checkout-button .btn-default span.icon {
+    color: #8CCB3F;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .mml-proceed-checkout-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .mml-proceed-checkout-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.cart-page .cart-total-box .proceed-to-checkout .mml-proceed-checkout-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*Product Details Page*/
+
+.mml-add-to-cart-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.mml-add-to-cart-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.mml-add-to-cart-button .btn-default span.text {
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-add-to-cart-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.mml-add-to-cart-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.mml-add-to-cart-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}
+
+
+/*Shop Page*/
+
+.shop-page-content .single-shop-item .meta p a {
+    color: #8CCB3F;
+}
+
+.shop-page-wrapper .shop-page-content .mml-add-to-cart-button .btn-default {
+    background: #8CCB3F;
+    border: 1px solid #8CCB3F !important;
+}
+
+.shop-page-wrapper .shop-page-content .mml-add-to-cart-button .btn-default span.icon {
+    background: #8CCB3F;
+}
+
+.shop-page-wrapper .shop-page-content .mml-add-to-cart-button .btn-default span.text {
+    border-right: 1px solid #8CCB3F;
+}
+
+.shop-page-wrapper .shop-page-content .mml-add-to-cart-button .btn-default:hover span.text {
+    color: #8CCB3F;
+    border-right: 1px solid #8CCB3F;
+}
+
+.shop-page-wrapper .shop-page-content .mml-add-to-cart-button .btn-default:hover span.icon {
+    color: #8CCB3F;
+}
+
+.shop-page-wrapper .shop-page-content .mml-add-to-cart-button .btn-default:hover {
+    border: 1px solid #8CCB3F !important;
+}

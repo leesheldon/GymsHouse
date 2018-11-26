@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GymsHouse.Models.Center>
+
+@{
+    ViewData["Title"] = "Centers List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-info">Center List</h2>
+    <p>
+        @Html.Partial("_CreateButtonPartial")
+    </p>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="info">
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @Html.Partial("_TableButtonPartial", item.ID)
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

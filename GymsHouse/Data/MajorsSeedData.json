@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "Yoga",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi duntut labore et dolore magna aliqua."
+  },
+  {
+    "Name": "Gyms",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi duntut labore et dolore magna aliqua."
+  },
+  {
+    "Name": "Dance",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi duntut labore et dolore magna aliqua."
+  },
+  {
+    "Name": "Body Building",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi duntut labore et dolore magna aliqua."
+  },
+  {
+    "Name": "Boxing",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi duntut labore et dolore magna aliqua."
+  },
+  {
+    "Name": "Cardio",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi duntut labore et dolore magna aliqua."
+  }
+]

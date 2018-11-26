@@ -1,0 +1,1080 @@
+@media only screen and (min-width: 240px) and (max-width: 319px) {
+    .mml-logo {
+        text-align: center;
+    }
+    .mml-serach-cart-pd-off {
+        display: none;
+    }
+    .mml-slide-left-button .btn-default {
+        display: none !important;
+    }
+    .mml-slide-right-button .btn-default {
+        display: none !important;
+    }
+    .mml-home-slider .slide-title {
+        background: none !important;
+    }
+    .slide-description {
+        display: none !important;
+    }
+    .mml-description {
+        text-align: center;
+        letter-spacing: 6px;
+    }
+    #cssmenu {
+        width: 200px !important;
+        border: 1px solid #bcbcbc !important;
+        margin: 0 auto 40px auto !important;
+    }
+    #cssmenu #menu-button {
+        color: #a6a6a6;
+    }
+    .mml-serach-cart {
+        text-align: center;
+        padding-top: 0px;
+    }
+    .mml-serach-cart .mml-icon-wrap {
+        float: none !important;
+        width: 37%;
+        display: inline-block;
+    }
+    .mml-serach-cart .mml-icon-wrap .icon {
+        float: none !important;
+        display: inline-block;
+    }
+    .mml-getting-started-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    .mml-getting-started-button .btn-default {
+        display: inline-block;
+    }
+    .fintess-program-img {
+        margin-bottom: 45px;
+        display: none;
+    }
+    .fintess-program-img .text {
+        width: 725px;
+    }
+    .fintess-program-img .text p {
+        letter-spacing: 18px;
+    }
+    .fintess-program-img .image-warpper {
+        min-height: 675px;
+        width: 179px;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper {
+        min-height: 254px;
+        width: 177px !important;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1 {
+        min-height: 254px;
+        width: 175px !important;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1-border-wrapper .img-1-border {
+        width: 155px;
+        height: 307px;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper {
+        height: 400px;
+        width: 100%;
+        right: 0 !important;
+        position: relative;
+        margin-top: 20px;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper .img-2 img {
+        width: 100%;
+        height: 100%;
+    }
+    .mml-section-title {
+        text-align: center;
+    }
+    .fintess-program-tab-area .tab-content .mml-section-title h4 {
+        background: transparent;
+        line-height: 30px;
+    }
+    .mml-tab-section-content {
+        text-align: center;
+    }
+    .fintess-program-tab-area .nav-tabs>li {
+        width: 100%;
+    }
+    .fintess-program-tab-area .nav-tabs>li>a .img {
+        width: 100%;
+    }
+    .mml-fitness-program {
+        padding-bottom: 80px;
+    }
+    .mml-class-des .left {
+        display: none;
+    }
+    .mml-class-des .right {
+        float: right;
+        width: 100%;
+        padding-top: 29px;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .mml-section-title {
+        padding-top: 55px;
+        padding-bottom: 15px;
+    }
+    .mml-section-title h4 {
+        background: transparent !important;
+        line-height: 31px;
+    }
+    .mml-class-feat {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .mml-class-feat-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .mml-discount-image {
+        min-height: 150px;
+    }
+    .mml-discount-image img {
+        margin-top: 0px;
+    }
+    .mml-discount-content {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 29px;
+        padding-top: 10px;
+        text-align: center;
+    }
+    .mml-discount-content h1 {
+        margin-bottom: 20px;
+    }
+    .mml-discount-button {
+        width: 100%;
+    }
+    .mml-courses-main-content .mml-courses {
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .left {
+        float: none;
+        display: inline-block;
+    }
+    .mml-courses-main-content .mml-courses .right {
+        width: 100%;
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .right .left {
+        float: none;
+    }
+    .mml-courses-main-content .mml-courses .right .right {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mml-courses-time-line .course-timeline-title::after {
+        display: none;
+    }
+    .mml-courses-time-line {
+        margin-bottom: 97px;
+    }
+    .mml-team .mml-team-container .team {
+        min-height: 485px;
+    }
+    .mml-testimonial .content-wrap .content .blq-icon {
+        display: none;
+    }
+    .mml-testimonial .content-wrap .content .blq-text {
+        width: 100%;
+        margin-top: 11PX;
+        margin-left: 0px;
+        padding: 0px 15px;
+    }
+    .mml-testimonial .content-wrap .content::after {
+        top: 366px;
+    }
+    .mml-testimonial {
+        padding-bottom: 85px;
+    }
+    .mml-pricetable-area .pricetable {
+        margin-bottom: 40px;
+    }
+    .mml-pricetable-area {
+        padding-bottom: 55px;
+    }
+    .mml-recent-post .single-post .image {
+        overflow: hidden;
+    }
+    .mml-recent-post .single-post .content {}
+    .mml-recent-post .single-post {
+        margin-bottom: 40px;
+    }
+    .mml-recent-post {
+        padding-bottom: 80px;
+    }
+    .mml-newsletter-area {
+        padding: 80px 0px;
+    }
+    .mml-newsletter-des {
+        text-align: center;
+    }
+    .mml-newsletter-des h4 {
+        line-height: 31px;
+        margin-bottom: 21px;
+    }
+    .mml-newletter-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+    .footer-copyright-area {
+        text-align: center;
+    }
+    .copyright-right p {
+        text-align: center;
+    }
+    .mml-footer-right-bg::after {
+        display: none;
+    }
+    .mml-footer-right .social {
+        float: right;
+        margin-top: 20px;
+    }
+    .mml-class-item .title-details h3 {
+        background: none;
+    }
+    .mml-header-bottom-fitness-level-title {
+        display: none;
+    }
+    .mml-section-title-wrapper {
+        padding-bottom: 50px;
+    }
+    .mml-class-title .mml-class-description p {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .mml-logo {
+        text-align: center;
+    }
+    .mml-description {
+        text-align: center;
+        letter-spacing: 6px;
+    }
+    #cssmenu {
+        width: 250px !important;
+        border: 1px solid #bcbcbc !important;
+        margin: 0 auto 40px auto !important;
+    }
+    #cssmenu #menu-button {
+        color: #a6a6a6;
+    }
+    .mml-serach-cart-pd-off {
+        display: none;
+    }
+    .mml-serach-cart {
+        text-align: center;
+        padding-top: 0px;
+    }
+    .mml-serach-cart .mml-icon-wrap {
+        float: none !important;
+        width: 37%;
+        display: inline-block;
+    }
+    .mml-serach-cart .mml-icon-wrap .icon {
+        float: none !important;
+        display: inline-block;
+    }
+    .mml-slide-left-button .btn-default {
+        display: none !important;
+    }
+    .mml-slide-right-button .btn-default {
+        display: none !important;
+    }
+    .mml-home-slider .slide-title {
+        background: none !important;
+    }
+    .slide-description {
+        display: none !important;
+    }
+    .mml-getting-started-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    .mml-getting-started-button .btn-default {
+        display: inline-block;
+    }
+    .fintess-program-img {
+        float: none;
+        margin-bottom: 45px;
+        min-height: 345px;
+        width: 244px;
+        display: none;
+    }
+    .fintess-program-img .text {
+        width: 725px;
+    }
+    .fintess-program-img .text p {
+        letter-spacing: 5px;
+        text-align: left;
+    }
+    .fintess-program-img .image-warpper {
+        min-height: 344px;
+        width: 185px;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper {
+        min-height: 254px;
+        width: 177px !important;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1 {
+        min-height: 254px;
+        width: 183px !important;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1-border-wrapper .img-1-border {
+        width: 165px;
+        height: 321px;
+        margin-left: 6px;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper {
+        height: 300px;
+        width: 133px;
+        right: -21px !important;
+        position: absolute;
+        margin-top: 0px;
+        bottom: 0px;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper .img-2 img {
+        width: 100%;
+        height: 100%;
+    }
+    .mml-section-title {
+        text-align: center;
+        padding-top: 43px;
+        min-height: 150px;
+    }
+    .mml-home-getting-started h3 {
+        text-align: center;
+    }
+    .fintess-program-tab-area .tab-content .mml-section-title h4 {
+        background: transparent;
+        line-height: 30px;
+    }
+    .mml-tab-section-content {
+        text-align: center;
+    }
+    .fintess-program-tab-area .nav-tabs>li {
+        width: 100%;
+    }
+    .fintess-program-tab-area .nav-tabs>li>a .img {
+        width: 100%;
+    }
+    .mml-fitness-program {
+        padding-bottom: 80px;
+        text-align: center;
+    }
+    .mml-class-des .left {
+        display: none;
+    }
+    .mml-class-des .right {
+        float: right;
+        width: 100%;
+        padding-top: 29px;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mml-section-title {
+        padding-bottom: 18px;
+    }
+    .mml-section-title h4 {
+        background: transparent !important;
+        line-height: 31px;
+    }
+    .mml-class-des {
+        min-height: 268px;
+    }
+    .mml-class-feat {
+        padding-top: 30px;
+        padding-bottom: 120px;
+    }
+    .mml-class-feat-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        float: none;
+        width: 192px;
+        display: inline-block;
+    }
+    .mml-discount-content p {
+        padding: 0px 10px;
+    }
+    .mml-discount-image {
+        min-height: 150px;
+    }
+    .mml-discount-image img {
+        margin-top: 0px;
+    }
+    .mml-discount-content {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 29px;
+        padding-top: 10px;
+        text-align: center;
+    }
+    .mml-discount-content h1 {
+        margin-bottom: 20px;
+    }
+    .mml-discount-button {
+        width: 100%;
+    }
+    .mml-courses-main-content .mml-courses {
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .left {
+        float: none;
+        display: inline-block;
+    }
+    .mml-courses-main-content .mml-courses .right {
+        width: 100%;
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .right .left {
+        float: none;
+    }
+    .mml-courses-main-content .mml-courses .right .right {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mml-courses-time-line .course-timeline-title::after {
+        display: none;
+    }
+    .mml-courses-time-line {
+        margin-bottom: 97px;
+    }
+    .mml-team-container {
+        text-align: center;
+    }
+    .team-wrap {
+        width: 100%;
+        display: inline-block;
+        float: none;
+        height: 485px;
+    }
+    .mml-team .mml-team-container .team {
+        min-height: 485px;
+    }
+    .mml-testimonial .content-wrap .content .blq-icon {
+        display: none;
+    }
+    .mml-testimonial .content-wrap .content .blq-text {
+        width: 100%;
+        margin-top: 11PX;
+        margin-left: 0px;
+        padding: 0px 15px;
+    }
+    .mml-testimonial .content-wrap .content::after {
+        top: 258px;
+    }
+    .mml-testimonial {
+        padding-bottom: 85px;
+    }
+    .mml-pricetable-area {
+        text-align: center;
+    }
+    .mml-pricetable-area .pricetable {
+        width: 100%;
+        display: inline-block;
+        float: none;
+        margin-bottom: 40px;
+    }
+    .mml-pricetable-area {
+        padding-bottom: 55px;
+    }
+    .mml-recent-post .recent-post .images {
+        float: none;
+        min-height: 179px;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    .mml-recent-post .recent-post .images img {
+        display: inline-block;
+    }
+    .mml-recent-post .single-post .content h4 {
+        background-position: 50% 100%;
+    }
+    .mml-recent-post .single-post {
+        float: none;
+        display: inline-block;
+        width: 246px;
+        height: 264px;
+        overflow: hidden;
+        margin-bottom: 40px;
+    }
+    .mml-recent-post {
+        text-align: center;
+        padding-bottom: 80px;
+    }
+    .mml-newsletter-area {
+        padding: 80px 0px;
+    }
+    .mml-newsletter-des {
+        text-align: center;
+    }
+    .mml-newsletter-des h4 {
+        line-height: 31px;
+        margin-bottom: 21px;
+    }
+    .mml-newletter-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+    .footer-copyright-area {
+        text-align: center;
+    }
+    .copyright-right p {
+        text-align: center;
+    }
+    .mml-footer-right-bg::after {
+        display: none;
+    }
+    .mml-footer-right .social {
+        float: right;
+        margin-top: 20px;
+    }
+    .mml-class-item .title-details h3 {
+        background: none;
+    }
+    .mml-header-bottom-fitness-level-title {
+        display: none;
+    }
+    .mml-section-title-wrapper {
+        padding-bottom: 50px;
+    }
+    .mml-class-title .mml-class-description p {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    .menu-responsive {
+        width: 80%;
+    }
+    .mml-logo {
+        text-align: center;
+    }
+    .mml-description {
+        text-align: center;
+        letter-spacing: 6px;
+    }
+    #cssmenu {
+        width: 300px !important;
+        border: 1px solid #bcbcbc !important;
+        margin: 0 auto 40px auto !important;
+    }
+    #cssmenu #menu-button {
+        color: #a6a6a6;
+    }
+    #cssmenu ul ul li, #cssmenu ul ul li a {
+        display: none;
+    }
+    .mml-serach-cart-pd-off {
+        display: none;
+    }
+    .mml-serach-cart {
+        text-align: center;
+        padding-top: 0px;
+    }
+    .mml-serach-cart .mml-icon-wrap {
+        float: none !important;
+        width: 37%;
+        display: inline-block;
+    }
+    .mml-serach-cart .mml-icon-wrap .icon {
+        float: none !important;
+        display: inline-block;
+    }
+    .slider-wrapper {
+        padding: 0 60px !important;
+    }
+    .slide-title {
+        background: none !important;
+    }
+    .mml-getting-started-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    .mml-getting-started-button .btn-default {
+        display: inline-block;
+    }
+    .mml-slide-left-button {
+        display: none !important;
+    }
+    .mml-slide-right-button {
+        display: none !important;
+    }
+    .slide-description p {
+        line-height: 15px !important;
+    }
+    .fintess-program-img {
+        float: none;
+        display: none;
+        margin-bottom: 45px;
+        min-height: 345px;
+        width: 244px;
+    }
+    .fintess-program-img .text {
+        width: 725px;
+    }
+    .fintess-program-img .text p {
+        letter-spacing: 5px;
+        text-align: left;
+    }
+    .fintess-program-img .image-warpper {
+        min-height: 344px;
+        width: 185px;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper {
+        min-height: 254px;
+        width: 177px !important;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1 {
+        min-height: 254px;
+        width: 183px !important;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1-border-wrapper .img-1-border {
+        width: 165px;
+        height: 321px;
+        margin-left: 6px;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper {
+        height: 300px;
+        width: 133px;
+        right: -21px !important;
+        position: absolute;
+        margin-top: 0px;
+        bottom: 0px;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper .img-2 img {
+        width: 100%;
+        height: 100%;
+    }
+    .mml-section-title {
+        text-align: center;
+        padding-top: 43px;
+        min-height: 150px;
+    }
+    .mml-home-getting-started h3 {
+        text-align: center;
+    }
+    .fintess-program-tab-area .tab-content .mml-section-title h4 {
+        background: transparent;
+        line-height: 30px;
+    }
+    .mml-tab-section-content {
+        text-align: center;
+    }
+    .fintess-program-tab-area .nav-tabs>li {
+        width: 100%;
+    }
+    .fintess-program-tab-area .nav-tabs>li>a .img {
+        width: 100%;
+    }
+    .mml-fitness-program {
+        padding-bottom: 80px;
+        text-align: center;
+    }
+    .mml-class-des .left {
+        display: none;
+    }
+    .mml-class-des .right {
+        float: right;
+        width: 100%;
+        padding-top: 29px;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mml-section-title {
+        padding-bottom: 18px;
+    }
+    .mml-section-title h4 {
+        background: transparent !important;
+        line-height: 31px;
+    }
+    .mml-class-des {
+        min-height: 245px;
+    }
+    .mml-class-feat {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .mml-class-feat-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        float: none;
+        display: inline-block;
+    }
+    .mml-discount-content p {
+        padding: 0px 10px;
+    }
+    .mml-discount-image {
+        min-height: 150px;
+    }
+    .mml-discount-image img {
+        margin-top: 0px;
+    }
+    .mml-discount-content {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 29px;
+        padding-top: 10px;
+        text-align: center;
+    }
+    .mml-discount-content h1 {
+        margin-bottom: 20px;
+    }
+    .mml-discount-button {
+        width: 100%;
+    }
+    .mml-courses-main-content .mml-courses {
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .left {
+        float: none;
+        display: inline-block;
+    }
+    .mml-courses-main-content .mml-courses .right {
+        width: 100%;
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .right .left {
+        float: none;
+    }
+    .mml-courses-main-content .mml-courses .right .right {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mml-courses-time-line .course-timeline-title::after {
+        display: none;
+    }
+    .mml-courses-time-line {
+        margin-bottom: 97px;
+    }
+    .mml-team-container {
+        text-align: center;
+    }
+    .team-wrap {
+        width: 306px;
+        display: inline-block;
+        float: none;
+        height: 485px;
+    }
+    .mml-team .mml-team-container .team {
+        min-height: 485px;
+    }
+    .mml-testimonial .content-wrap .content .blq-icon {
+        display: none;
+    }
+    .mml-testimonial .content-wrap .content .blq-text {
+        width: 100%;
+        margin-top: 11PX;
+        margin-left: 0px;
+        padding: 0px 15px;
+    }
+    .mml-testimonial .content-wrap .content::after {
+        top: 231px;
+    }
+    .mml-testimonial {
+        padding-bottom: 85px;
+    }
+    .mml-pricetable-area {
+        text-align: center;
+    }
+    .mml-pricetable-area .pricetable {
+        width: 306px;
+        display: inline-block;
+        float: none;
+        margin-bottom: 40px;
+    }
+    .mml-pricetable-area {
+        padding-bottom: 55px;
+    }
+    .mml-recent-post .single-post .image {
+        height: 386px;
+    }
+    .mml-recent-post .single-post .content {
+        width: 320px;
+        height: 386px;
+    }
+    .mml-recent-post .recent-post .images {
+        float: none;
+        width: 295px;
+        min-height: 179px;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    .mml-recent-post .single-post .content h4 {
+        background-position: 50% 100%;
+    }
+    .mml-recent-post .single-post {
+        float: none;
+        display: inline-block;
+        width: 320px;
+        height: 270px;
+        overflow: hidden;
+        margin-bottom: 40px;
+    }
+    .mml-recent-post {
+        text-align: center;
+        padding-bottom: 80px;
+    }
+    .mml-newsletter-area {
+        padding: 80px 0px;
+    }
+    .mml-newsletter-des {
+        text-align: center;
+    }
+    .mml-newsletter-des h4 {
+        line-height: 31px;
+        margin-bottom: 21px;
+    }
+    .mml-newletter-button {
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+    .footer-copyright-area {
+        text-align: center;
+    }
+    .copyright-right p {
+        text-align: center;
+    }
+    .mml-footer-right {
+        background: transparent;
+        min-height: 55px;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+    .mml-footer-right-bg::after {
+        display: none;
+    }
+    .mml-footer-right .social {
+        float: none;
+        display: inline-block;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .menu-responsive {
+        width: 70%;
+    }
+    .mml-serach-cart-pd-off {
+        display: none;
+    }
+    .logo-responsive {
+        width: 100%;
+    }
+    .mml-logo {
+        float: none;
+        text-align: center;
+    }
+    .mml-description {
+        text-align: center;
+    }
+    .menu-responsive {
+        width: 100%;
+    }
+    .slider-wrapper {
+        padding: 0px 70px !important;
+    }
+    .mml-home-getting-started {
+        padding-bottom: 20px;
+    }
+    .getting-started-responsive {
+        width: 100%;
+    }
+    .mml-getting-started-button {
+        float: left;
+    }
+    .mml-getting-started-button .btn-default {
+        margin-top: 0px;
+    }
+    .mml-fitness-program {
+        padding-bottom: 90px;
+    }
+    .fintess-program-img {
+        overflow: hidden;
+    }
+    .fintess-program-img .image-warpper .img-1-warapper .img-1-border-wrapper .img-1-border {
+        display: none !important;
+    }
+    .fintess-program-img .image-warpper .img-2-warapper {
+        width: 57.5%;
+        right: 47px;
+    }
+    .fintess-program-tab-area .nav-tabs>li {
+        width: 50%;
+    }
+    .fintess-program-tab-area .tab-content .mml-section-title h4 {
+        background: none;
+    }
+    .mml-awesome-classes {
+        padding-bottom: 80px;
+    }
+    .mml-class-des .left {
+        display: none;
+    }
+    .mml-class-des .right {
+        width: 100%;
+        text-align: left;
+        padding-left: 22px;
+    }
+    .mml-class-responsive .mml-class-feat-content {
+        margin-bottom: 30px;
+    }
+    .mml-section-title h4 {
+        background: none;
+    }
+    .mml-courses-main-content .mml-courses {
+        text-align: center;
+    }
+    .mml-courses-main-content .mml-courses .left {
+        float: none;
+        display: inline-block;
+    }
+    .mml-courses-main-content .mml-courses .right {
+        float: none;
+        display: inline-block;
+    }
+    .mml-courses-main-content .mml-courses .right .left {
+        float: none;
+        display: inline-block;
+    }
+    .mml-courses-time-line .course-timeline-title p {
+        font-size: 17px !important;
+    }
+    .mml-testimonial .content-wrap .content::after {
+        display: none;
+    }
+    .mml-testimonial {
+        padding-bottom: 45px;
+    }
+    .mml-pricetable .mml-section-title h4 {
+        background: none;
+    }
+    .pricetable-responsive {
+        width: 50%;
+    }
+    .mml-pricetable-area .pricetable {
+        margin-bottom: 30px;
+    }
+    .mml-blog {
+        padding-bottom: 80px;
+    }
+    .mml-recent-post .single-post {
+        overflow: hidden;
+        height: auto;
+        width: auto;
+        margin-bottom: 60px;
+    }
+    .mml-newsletter-des p {
+        display: none;
+    }
+    .newsletter-text {
+        width: 25%;
+    }
+    .newsletter-content {
+        width: 75%;
+    }
+    .mml-footer-right {
+        background: none;
+        display: none;
+    }
+    .mml-footer-right-bg::after {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+    .menu-responsive {
+        width: 66.66666667%;
+    }
+    #cssmenu>ul>li>a {
+        padding: 20px 15px;
+    }
+    .mml-serach-cart-pd-off {
+        display: none;
+    }
+    .slider-wrapper {
+        padding: 0 90px !important;
+    }
+    .mml-home-getting-started {
+        min-height: 130px;
+    }
+    .getting-started-text {
+        width: 75%;
+    }
+    .getting-started-button {
+        width: 25%;
+    }
+    .mml-class-feat a {
+        width: 100%;
+    }
+    .mml-section-title h4 {
+        background: none;
+    }
+    .mml-class-des .left {
+        display: none;
+    }
+    .mml-class-des .right {
+        width: 100%;
+        text-align: left;
+        padding-left: 30px;
+    }
+    .mml-courses-main-content .mml-courses .right {
+        width: 62.2%;
+    }
+    .mml-courses-main-content .mml-courses .right .right {
+        width: 75.5%;
+    }
+    .mml-testimonial .content-wrap .content::after {
+        display: none;
+    }
+    .mml-pricetable .mml-section-title h4 {
+        background: none;
+    }
+    .mml-recent-post .single-post {
+        height: 314px;
+        overflow: hidden;
+    }
+    .mml-footer-right-bg::after {
+        display: none;
+    }
+    .fintess-program-tab-area .tab-content .mml-section-title h4 {
+        background: none;
+    }
+}
+
+@media only screen and (min-width: 240px) and (max-width:767px) {
+    .mml-class-feat .owl-theme .owl-controls {
+        margin-top: -105px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .mml-details-video iframe {
+        width: 100%;
+    }
+}
