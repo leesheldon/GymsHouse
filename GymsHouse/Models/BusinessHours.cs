@@ -15,14 +15,16 @@ namespace GymsHouse.Models
         public string DaysOfWeek { get; set; }
 
         [Required]
-        [StringLength(7)]
+        [StringLength(8)]
         public string From { get; set; }
 
         [Required]
-        [StringLength(7)]
+        [StringLength(8)]
         public string To { get; set; }
 
         public bool IsClosed { get; set; }
+
+        public int DisplayOrder { get; set; }
 
         [Required]
         [Display(Name = "Center")]

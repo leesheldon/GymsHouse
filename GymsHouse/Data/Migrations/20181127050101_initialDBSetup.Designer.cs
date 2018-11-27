@@ -11,7 +11,7 @@ using System;
 namespace GymsHouse.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181126082953_initialDBSetup")]
+    [Migration("20181127050101_initialDBSetup")]
     partial class initialDBSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,15 +111,17 @@ namespace GymsHouse.Data.Migrations
                     b.Property<string>("DaysOfWeek")
                         .IsRequired();
 
+                    b.Property<int>("DisplayOrder");
+
                     b.Property<string>("From")
                         .IsRequired()
-                        .HasMaxLength(7);
+                        .HasMaxLength(8);
 
                     b.Property<bool>("IsClosed");
 
                     b.Property<string>("To")
                         .IsRequired()
-                        .HasMaxLength(7);
+                        .HasMaxLength(8);
 
                     b.HasKey("ID");
 

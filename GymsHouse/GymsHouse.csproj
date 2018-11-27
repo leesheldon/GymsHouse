@@ -31,6 +31,8 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20181125104329_initialDBSetup.cs" />
     <Compile Remove="Data\Migrations\20181125104329_initialDBSetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20181126082953_initialDBSetup.cs" />
+    <Compile Remove="Data\Migrations\20181126082953_initialDBSetup.Designer.cs" />
   </ItemGroup>
 
 

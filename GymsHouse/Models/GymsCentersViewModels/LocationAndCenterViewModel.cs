@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GymsHouse.Models.LocationViewModels
+namespace GymsHouse.Models.GymsCentersViewModels
 {
     public class LocationAndCenterViewModel
     {

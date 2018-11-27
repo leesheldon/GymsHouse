@@ -110,15 +110,17 @@ namespace GymsHouse.Data.Migrations
                     b.Property<string>("DaysOfWeek")
                         .IsRequired();
 
+                    b.Property<int>("DisplayOrder");
+
                     b.Property<string>("From")
                         .IsRequired()
-                        .HasMaxLength(7);
+                        .HasMaxLength(8);
 
                     b.Property<bool>("IsClosed");
 
                     b.Property<string>("To")
                         .IsRequired()
-                        .HasMaxLength(7);
+                        .HasMaxLength(8);
 
                     b.HasKey("ID");
 

@@ -1,100 +1,114 @@
 [
   {
     "DaysOfWeek": "Monday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 2,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Tuesday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 3,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Wednesday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 4,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Thursday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 5,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Friday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 6,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Saturday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 7,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Sunday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 M",
     "IsClosed": false,
+    "DisplayOrder": 1,
     "CenterId": "KrqgOLs07ZkbapP4EGi"
   },
   {
     "DaysOfWeek": "Monday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 2,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   },
   {
     "DaysOfWeek": "Tuesday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 3,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   },
   {
     "DaysOfWeek": "Wednesday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 4,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   },
   {
     "DaysOfWeek": "Thursday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 5,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   },
   {
     "DaysOfWeek": "Friday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 6,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   },
   {
     "DaysOfWeek": "Saturday",
-    "From": "07:00AM",
-    "To": "22:00PM",
+    "From": "07:00 AM",
+    "To": "10:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 7,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   },
   {
     "DaysOfWeek": "Sunday",
-    "From": "07:00AM",
-    "To": "20:00PM",
+    "From": "07:00 AM",
+    "To": "08:00 PM",
     "IsClosed": false,
+    "DisplayOrder": 1,
     "CenterId": "KrrIkDT19XhPgWo0T0A"
   }
 ]

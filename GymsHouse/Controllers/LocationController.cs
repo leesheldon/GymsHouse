@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GymsHouse.Data;
 using GymsHouse.Extensions;
 using GymsHouse.Models;
-using GymsHouse.Models.LocationViewModels;
+using GymsHouse.Models.GymsCentersViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -213,6 +213,16 @@ namespace GymsHouse.Controllers
 
             if (!ModelState.IsValid)
             {
+                vm = new LocationAndCenterViewModel
+                {
+                    CenterList = _db.Center.ToList(),
+                    LocationList = _db.Location
+                                    .OrderBy(p => p.Name)
+                                    .Select(p => p.Name)
+                                    .Distinct()
+                                    .ToList()
+                };
+
                 return View(vm);
             }
 

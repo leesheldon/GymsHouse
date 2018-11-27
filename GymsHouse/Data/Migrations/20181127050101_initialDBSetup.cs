@@ -187,9 +187,10 @@ namespace GymsHouse.Data.Migrations
                     ID = table.Column<string>(nullable: false),
                     CenterId = table.Column<string>(nullable: false),
                     DaysOfWeek = table.Column<string>(nullable: false),
-                    From = table.Column<string>(maxLength: 7, nullable: false),
+                    DisplayOrder = table.Column<int>(nullable: false),
+                    From = table.Column<string>(maxLength: 8, nullable: false),
                     IsClosed = table.Column<bool>(nullable: false),
-                    To = table.Column<string>(maxLength: 7, nullable: false)
+                    To = table.Column<string>(maxLength: 8, nullable: false)
                 },
                 constraints: table =>
                 {
