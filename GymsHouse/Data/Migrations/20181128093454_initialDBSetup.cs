@@ -131,6 +131,7 @@ namespace GymsHouse.Data.Migrations
                     ID = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
                     Duration = table.Column<double>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Picture_1 = table.Column<string>(nullable: true),
                     Picture_2 = table.Column<string>(nullable: true),
@@ -152,6 +153,7 @@ namespace GymsHouse.Data.Migrations
                     Awards = table.Column<string>(nullable: true),
                     Experiences = table.Column<string>(nullable: false),
                     History = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
                     Picture_1 = table.Column<string>(nullable: true),
                     Picture_2 = table.Column<string>(nullable: true),
                     Picture_3 = table.Column<string>(nullable: true)
@@ -262,7 +264,8 @@ namespace GymsHouse.Data.Migrations
                     InstructorId = table.Column<string>(nullable: false),
                     LocationId = table.Column<string>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    StartDate = table.Column<DateTime>(nullable: false)
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -322,9 +325,9 @@ namespace GymsHouse.Data.Migrations
                 {
                     ID = table.Column<string>(nullable: false),
                     DayOfWeek = table.Column<string>(maxLength: 10, nullable: false),
-                    From = table.Column<string>(maxLength: 7, nullable: false),
+                    From = table.Column<string>(maxLength: 8, nullable: false),
                     ScheduleHeaderId = table.Column<string>(nullable: false),
-                    To = table.Column<string>(maxLength: 7, nullable: false)
+                    To = table.Column<string>(maxLength: 8, nullable: false)
                 },
                 constraints: table =>
                 {

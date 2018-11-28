@@ -12,11 +12,11 @@ namespace GymsHouse.Models
         public string ID { get; set; }
 
         [Required]
-        [StringLength(7)]
+        [StringLength(8)]
         public string From { get; set; }
 
         [Required]
-        [StringLength(7)]
+        [StringLength(8)]
         public string To { get; set; }
 
         [Required]

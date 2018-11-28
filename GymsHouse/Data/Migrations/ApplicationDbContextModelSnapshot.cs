@@ -197,6 +197,8 @@ namespace GymsHouse.Data.Migrations
 
                     b.Property<double>("Duration");
 
+                    b.Property<bool>("IsActive");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
@@ -229,6 +231,8 @@ namespace GymsHouse.Data.Migrations
                         .IsRequired();
 
                     b.Property<string>("History");
+
+                    b.Property<bool>("IsActive");
 
                     b.Property<string>("Picture_1");
 
@@ -343,14 +347,14 @@ namespace GymsHouse.Data.Migrations
 
                     b.Property<string>("From")
                         .IsRequired()
-                        .HasMaxLength(7);
+                        .HasMaxLength(8);
 
                     b.Property<string>("ScheduleHeaderId")
                         .IsRequired();
 
                     b.Property<string>("To")
                         .IsRequired()
-                        .HasMaxLength(7);
+                        .HasMaxLength(8);
 
                     b.HasKey("ID");
 
@@ -380,6 +384,8 @@ namespace GymsHouse.Data.Migrations
                     b.Property<string>("Notes");
 
                     b.Property<DateTime>("StartDate");
+
+                    b.Property<string>("Status");
 
                     b.HasKey("ID");
 

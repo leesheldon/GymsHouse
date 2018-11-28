@@ -22,6 +22,10 @@ namespace GymsHouse.Models
 
         public string Notes { get; set; }
 
+        public string Status { get; set; }
+
+        public enum EStatus { NA = 0, Waiting = 1, Started = 2, Paused = 3, Cancelled = 4, Finished = 5 }
+
         [Required]
         [Display(Name = "Class")]
         public string ClassId { get; set; }

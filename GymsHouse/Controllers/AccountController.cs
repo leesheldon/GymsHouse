@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using GymsHouse.Models;
 using GymsHouse.Models.AccountViewModels;
 using GymsHouse.Services;
+using GymsHouse.Extensions;
 
 namespace GymsHouse.Controllers
 {
@@ -220,10 +221,25 @@ namespace GymsHouse.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Gender = model.Gender,
+                    DateOfBirth = model.DateOfBirth,
+                    CreatedOn = DateTime.Now,
+                    LastUpdated = DateTime.Now
+                };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // Add Not Available Role to New User, then Administrator will assign appropriate role to them.
+                    await _userManager.AddToRoleAsync(user, SD.NAEndUser);
+                    // =====================================
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

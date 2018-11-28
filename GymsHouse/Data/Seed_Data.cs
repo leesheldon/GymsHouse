@@ -1,4 +1,5 @@
-﻿using GymsHouse.Models;
+﻿using GymsHouse.Extensions;
+using GymsHouse.Models;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using System;
@@ -30,13 +31,13 @@ namespace GymsHouse.Data
 
                 var roles = new List<IdentityRole>
                 {
-                    new IdentityRole {Name = "NA"},
-                    new IdentityRole {Name = "Admin"},
-                    new IdentityRole {Name = "TrainingManager"},
-                    new IdentityRole {Name = "Instructor"},
-                    new IdentityRole {Name = "Staff"},
-                    new IdentityRole {Name = "Customer"},                    
-                    new IdentityRole {Name = "Member"}
+                    new IdentityRole {Name = SD.NAEndUser},
+                    new IdentityRole {Name = SD.AdminEndUser},
+                    new IdentityRole {Name = SD.TrainingManagerUser},
+                    new IdentityRole {Name = SD.InstructorUser},
+                    new IdentityRole {Name = SD.StaffUser},
+                    new IdentityRole {Name = SD.MemberUser},
+                    new IdentityRole {Name = SD.CustomerUser}
                 };
 
                 foreach (var role in roles)
@@ -50,14 +51,16 @@ namespace GymsHouse.Data
                     if (resultUser.Succeeded)
                     {
                         var instructorUser = _userManager.FindByNameAsync(user.UserName).Result;
-                        _userManager.AddToRoleAsync(instructorUser, "Instructor").Wait();                                               
+                        _userManager.AddToRoleAsync(instructorUser, SD.InstructorUser).Wait();                                               
                     }
                 }
 
                 var adminUser = new ApplicationUser
                 {
                     FirstName = "Admin",
-                    LastName = "Admin 1"
+                    LastName = "Admin 1",
+                    UserName = "admin@gmail.com",
+                    Email = "admin@gmail.com"
                 };
 
                 IdentityResult resultAdmin = _userManager.CreateAsync(adminUser, "Password123+").Result;
@@ -65,7 +68,7 @@ namespace GymsHouse.Data
                 if (resultAdmin.Succeeded)
                 {
                     var admin = _userManager.FindByNameAsync(adminUser.UserName).Result;
-                    _userManager.AddToRolesAsync(admin, new[] { "Admin", "TrainingManager" }).Wait();
+                    _userManager.AddToRolesAsync(admin, new[] { SD.AdminEndUser, SD.TrainingManagerUser }).Wait();
                 }
             }
         }

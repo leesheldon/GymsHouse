@@ -24,6 +24,8 @@ namespace GymsHouse.Models
 
         public string Picture_3 { get; set; }
 
+        public bool IsActive { get; set; }
+
         [Required]
         [Display(Name = "User")]
         public string ApplicationUserId { get; set; }

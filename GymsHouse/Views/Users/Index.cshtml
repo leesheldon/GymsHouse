@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GymsHouse.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Manage Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Manage Users</h2>
+<br />
+<div class="form-border">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                <th>Roles</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var perUser in Model)
+            {
+                <tr @(perUser.IsLockedOut == true ? "style=color:red" : "style=color:black")>
+                    <td>
+                        @Html.DisplayFor(m => perUser.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => perUser.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => perUser.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => perUser.PhoneNumber)
+                    </td>
+                    <td>
+                        @perUser.RolesNames
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary"
+                           href="@Url.Action("Edit/" + perUser.Id)">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        @if (perUser.IsLockedOut)
+                        {
+                            <a type="button" class="btn btn-success"
+                               href="@Url.Action("UnLock/" + perUser.Id)">
+                                <i class="fa fa-unlock"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <a type="button" class="btn btn-danger"
+                               href="@Url.Action("Lock/" + perUser.Id)">
+                                <i class="fa fa-lock"></i>
+                            </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

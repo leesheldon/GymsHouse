@@ -22,6 +22,8 @@ namespace GymsHouse.Models
         [Required]
         public double Duration { get; set; }
 
+        public bool IsActive { get; set; }
+
         public string Picture_1 { get; set; }
 
         public string Picture_2 { get; set; }

@@ -1,0 +1,198 @@
+﻿@model GymsHouse.Models.UserViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-primary">Edit Users</h2>
+    <br />
+    <hr />
+
+
+    @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @onsubmit = "return onValidation()" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.TextBoxFor(m => m.SelectedUser.Id, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.FirstName">First Name:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.FirstName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.FirstName, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.LastName">Last Name:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.LastName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.LastName, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.Gender">Gender:</label>
+            <div class="col-sm-8">                
+                @Html.DropDownListFor(m => m.SelectedUser.Gender, Html.GetEnumSelectList<ApplicationUser.EGenderType>(), new { @class = "form-control" })
+            </div>            
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.DateOfBirth">Date of Birth:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.DateOfBirth, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @type = "Date" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.DateOfBirth, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.Email">Email:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.Email, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.Email, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.PhoneNumber">Phone Number:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.PhoneNumber, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.PhoneNumber, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.City">City:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.City, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.City, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.Country">Country:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.Country, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.Country, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.LockoutEnd">Lockout End:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.SelectedUser.LockoutEnd, htmlAttributes: new { @class = "form-control", @type = "Date" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.LockoutEnd, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.LockoutReason">Lockout Reason:</label>
+            <div class="col-sm-10">
+                @Html.TextAreaFor(m => m.SelectedUser.LockoutReason, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.LockoutReason, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.UnLockReason">UnLock Reason:</label>
+            <div class="col-sm-10">
+                @Html.TextAreaFor(m => m.SelectedUser.UnLockReason, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.UnLockReason, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="SelectedUser.AccessFailedCount">Access Failed Count:</label>
+            <div class="col-sm-10">
+                @Html.TextAreaFor(m => m.SelectedUser.AccessFailedCount, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SelectedUser.AccessFailedCount, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Roles: </label>
+            <div class="col-sm-10" id="chkBoxListId">
+                @{
+                    int i = 0;
+                    while (i < Model.RolesList.Count())
+                    {
+                        <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                            <input type="checkbox" onchange="changedOnChkBox()" class="custom-control-input" id="@Model.RolesList[i].Id" asp-for="@Model.RolesList[i].SelectedRole" />
+                            <label for="@Model.RolesList[i].Id" class="custom-control-label">@Model.RolesList[i].Name</label>
+                            @Html.TextBoxFor(m => m.RolesList[i].Id, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+                            @Html.TextBoxFor(m => m.RolesList[i].Name, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+                        </div>
+
+                        i = i + 1;
+                        if (i < Model.RolesList.Count())
+                        {
+                            <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                                <input type="checkbox" onchange="changedOnChkBox()" class="custom-control-input" id="@Model.RolesList[i].Id" asp-for="@Model.RolesList[i].SelectedRole" />
+                                <label for="@Model.RolesList[i].Id" class="custom-control-label">@Model.RolesList[i].Name</label>
+                                @Html.TextBoxFor(m => m.RolesList[i].Id, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+                                @Html.TextBoxFor(m => m.RolesList[i].Name, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+                            </div>
+                        }
+
+                        i = i + 1;
+                        if (i < Model.RolesList.Count())
+                        {
+                            <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                                <input type="checkbox" onchange="changedOnChkBox()" class="custom-control-input" id="@Model.RolesList[i].Id" asp-for="@Model.RolesList[i].SelectedRole" />
+                                <label for="@Model.RolesList[i].Id" class="custom-control-label">@Model.RolesList[i].Name</label>
+                                @Html.TextBoxFor(m => m.RolesList[i].Id, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+                                @Html.TextBoxFor(m => m.RolesList[i].Name, htmlAttributes: new { @class = "form-control", @type = "hidden" })
+                            </div>
+                        }
+
+                        <div class="custom-control custom-checkbox" style="clear: both;"></div>
+
+                        i = i + 1;
+                    }
+                 }
+
+                <span id="chkboxListErrorId" class="text-danger">Please select at least one.</span>
+            </div>
+
+                    </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+
+
+
+            $("#chkboxListErrorId").hide();
+        });
+
+        function changedOnChkBox() {
+            var cnt = $("#chkBoxListId input:checked").length;
+            if (cnt < 1) {
+                $("#chkboxListErrorId").show();
+            }
+            else {
+                $("#chkboxListErrorId").hide();
+
+            }
+        }
+
+        function onValidation() {
+            var cnt = $("#chkBoxListId input:checked").length;
+            if (cnt < 1) {
+                $("#chkboxListErrorId").show();
+
+                return false;
+            }
+            else {
+                $("#chkboxListErrorId").hide();
+
+                return true;
+            }
+        }
+    </script>
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

@@ -12,9 +12,14 @@ namespace GymsHouse.Extensions
 
         public const string SessionShoppingCartName = "ssShoppingCart";
 
-        public const string AdminEndUser = "Admin";
-        public const string NormalEndUser = "Normal User";
         public const string NAEndUser = "Not Available";
+        public const string AdminEndUser = "Admin";
+        public const string TrainingManagerUser = "Training Manager";
+        public const string InstructorUser = "Instructor";
+        public const string StaffUser = "Staff";
+        public const string MemberUser = "Member";
+        public const string CustomerUser = "Customer";
 
+     
     }
 }

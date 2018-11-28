@@ -21,6 +21,8 @@ namespace GymsHouse.Models
 
         public string Gender { get; set; }
 
+        public enum EGenderType { Male = 1, Female = 2, Others = 3 }
+
         public DateTime DateOfBirth { get; set; }
 
         public DateTime CreatedOn { get; set; }
