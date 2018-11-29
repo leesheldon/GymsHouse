@@ -73,10 +73,7 @@ namespace GymsHouse.Controllers
             {
                 SelectedUser = appUser,
                 RolesList = await GetRolesListBySelectedUser(id)
-            };
-            
-
-            
+            };                        
 
             return View(vm);
         }

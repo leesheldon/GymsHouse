@@ -261,9 +261,29 @@ namespace GymsHouse.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
+            var appUser = await _userManager.GetUserAsync(this.User);
+            var rolesNameList = await _userManager.GetRolesAsync(appUser);
+            bool isAdmin = false;
+            foreach (var roleItem in rolesNameList)
+            {
+                if (roleItem == SD.AdminEndUser)
+                {
+                    isAdmin = true;
+                    break;
+                }
+            }
+
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+
+            if (isAdmin)
+            {
+                return RedirectToAction(nameof(AdminController.Index), "Admin");                
+            }
+            else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
         }
 
         [HttpPost]
