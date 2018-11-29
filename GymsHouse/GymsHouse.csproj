@@ -35,6 +35,10 @@
     <Compile Remove="Data\Migrations\20181126082953_initialDBSetup.Designer.cs" />
     <Compile Remove="Data\Migrations\20181128045523_initialDBSetup.cs" />
     <Compile Remove="Data\Migrations\20181128045523_initialDBSetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20181128093454_initialDBSetup.cs" />
+    <Compile Remove="Data\Migrations\20181128093454_initialDBSetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20181129081620_initialDBSetup.cs" />
+    <Compile Remove="Data\Migrations\20181129081620_initialDBSetup.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

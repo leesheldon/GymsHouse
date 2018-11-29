@@ -19,7 +19,7 @@ namespace GymsHouse.Models
         [StringLength(100)]
         public string LastName { get; set; }
 
-        public string Gender { get; set; }
+        public int Gender { get; set; }
 
         public enum EGenderType { Male = 1, Female = 2, Others = 3 }
 
@@ -52,6 +52,10 @@ namespace GymsHouse.Models
 
         [NotMapped]
         public string RolesNames { get; set; }
+
+        [NotMapped]
+        public string GenderText { get; set; }
+
 
     }
 }

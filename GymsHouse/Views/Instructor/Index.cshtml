@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GymsHouse.Models.Instructor>
+
+@{
+    ViewData["Title"] = "Instructors List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2 class="text-info">Instructors List</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="warning">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Majors</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.GenderText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MajorsNames)
+            </td>
+            @Html.Partial("_TableButtonsNoDeletePartial", item.ID)
+        </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -95,7 +95,7 @@ namespace GymsHouse.Controllers
             {
                 if (appRoles.Count < 1)
                 {
-                    return NotFound();
+                    return BadRequest("Please select at least one role.");
                 }
 
                 var userFromDB = await _db.Users.Where(p => p.Id == id).FirstOrDefaultAsync();

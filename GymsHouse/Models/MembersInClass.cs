@@ -30,7 +30,7 @@ namespace GymsHouse.Models
         [Display(Name = "User")]
         public string ApplicationUserId { get; set; }
 
-        [ForeignKey("UserId")]
+        [ForeignKey("ApplicationUserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
 
     }

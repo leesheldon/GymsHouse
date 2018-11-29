@@ -11,7 +11,7 @@ using System;
 namespace GymsHouse.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181128093454_initialDBSetup")]
+    [Migration("20181129082339_initialDBSetup")]
     partial class initialDBSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace GymsHouse.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<string>("Gender");
+                    b.Property<int>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -325,8 +325,6 @@ namespace GymsHouse.Data.Migrations
                         .IsRequired();
 
                     b.Property<string>("Status");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("ID");
 

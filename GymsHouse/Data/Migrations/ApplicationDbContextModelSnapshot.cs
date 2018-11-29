@@ -47,7 +47,7 @@ namespace GymsHouse.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<string>("Gender");
+                    b.Property<int>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -324,8 +324,6 @@ namespace GymsHouse.Data.Migrations
                         .IsRequired();
 
                     b.Property<string>("Status");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("ID");
 

@@ -49,10 +49,11 @@ namespace GymsHouse.Data.Migrations
                 nullable: false,
                 defaultValue: "");
 
-            migrationBuilder.AddColumn<string>(
+            migrationBuilder.AddColumn<int>(
                 name: "Gender",
                 table: "AspNetUsers",
-                nullable: true);
+                nullable: false,
+                defaultValue: 0);
 
             migrationBuilder.AddColumn<string>(
                 name: "LastName",
@@ -299,8 +300,7 @@ namespace GymsHouse.Data.Migrations
                     Comments = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
                     ScheduleHeaderId = table.Column<string>(nullable: false),
-                    Status = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

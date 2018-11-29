@@ -1,0 +1,82 @@
+﻿@model GymsHouse.Models.Instructor
+
+@{
+    ViewData["Title"] = "Instructor Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h2 class="text-info">Instructor Details</h2>
+    <br />
+
+    <div class="form-horizontal row">
+        <div class="col-md-8">
+            <field-set disabled>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="ApplicationUser.FirstName" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        @Html.TextBoxFor(m => m.ApplicationUser.FirstName, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="ApplicationUser.LastName" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        @Html.TextBoxFor(m => m.ApplicationUser.LastName, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Experiences" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        @Html.TextAreaFor(m => m.Experiences, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "height: 100px;" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="History" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        @Html.TextAreaFor(m => m.History, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "height: 100px;" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Awards" class="custom-label"></label>
+                    </div>
+                    <div class="col-4">
+                        @Html.TextAreaFor(m => m.Awards, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "height: 100px;" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <label class="control-label" for="IsActive">Is Active:</label>
+                    </div>                    
+                    <div class="col-sm-4">
+                        @Html.CheckBoxFor(m => m.IsActive, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "width: 20px; height: 20px;" })
+                    </div>
+                </div>
+
+</field-set>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <img src="@Model.Picture_1"
+                 style="border-radius: 5px; border: 1px solid #bbb9b9; width: 100%;" />
+        </div>
+
+    </div>
+    <br />
+    <div class="container row">
+        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+</div>
+
+

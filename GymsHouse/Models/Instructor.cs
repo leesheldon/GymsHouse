@@ -37,5 +37,9 @@ namespace GymsHouse.Models
 
         public ICollection<ScheduleHeader> ScheduleHeaders { get; set; }
 
+        [NotMapped]
+        public string MajorsNames { get; set; }
+
+
     }
 }
