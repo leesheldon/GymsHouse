@@ -47,7 +47,7 @@ namespace GymsHouse.Data
 
                 foreach (var user in users)
                 {
-                    IdentityResult resultUser = _userManager.CreateAsync(user, "Password123+").Result;
+                    IdentityResult resultUser = _userManager.CreateAsync(user, "Admin123+").Result;
                     if (resultUser.Succeeded)
                     {
                         var instructorUser = _userManager.FindByNameAsync(user.UserName).Result;
@@ -63,7 +63,7 @@ namespace GymsHouse.Data
                     Email = "admin@gmail.com"
                 };
 
-                IdentityResult resultAdmin = _userManager.CreateAsync(adminUser, "Password123+").Result;
+                IdentityResult resultAdmin = _userManager.CreateAsync(adminUser, "Admin123+").Result;
 
                 if (resultAdmin.Succeeded)
                 {
@@ -138,14 +138,14 @@ namespace GymsHouse.Data
             _db.SaveChanges();
         }
 
-        public void SeedGymsClasses()
+        public void SeedTrainingClasses()
         {
-            var gymsClassData = System.IO.File.ReadAllText("Data/GymsClassSeedData.json");
-            var gymsClasses = JsonConvert.DeserializeObject<List<GymsClass>>(gymsClassData);
+            var gymsClassData = System.IO.File.ReadAllText("Data/TrainingClassSeedData.json");
+            var gymsClasses = JsonConvert.DeserializeObject<List<TrainingClass>>(gymsClassData);
 
             foreach (var gymsClass in gymsClasses)
             {
-                _db.GymsClass.Add(gymsClass);
+                _db.TrainingClass.Add(gymsClass);
             }
 
             _db.SaveChanges();

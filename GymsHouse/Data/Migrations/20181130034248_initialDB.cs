@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GymsHouse.Data.Migrations
 {
-    public partial class initialDBSetup : Migration
+    public partial class initialDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -126,26 +126,6 @@ namespace GymsHouse.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GymsClass",
-                columns: table => new
-                {
-                    ID = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: false),
-                    Duration = table.Column<double>(nullable: false),
-                    IsActive = table.Column<bool>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    Picture_1 = table.Column<string>(nullable: true),
-                    Picture_2 = table.Column<string>(nullable: true),
-                    Picture_3 = table.Column<string>(nullable: true),
-                    Picture_4 = table.Column<string>(nullable: true),
-                    Price = table.Column<double>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GymsClass", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Instructor",
                 columns: table => new
                 {
@@ -181,6 +161,26 @@ namespace GymsHouse.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Major", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TrainingClass",
+                columns: table => new
+                {
+                    ID = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Duration = table.Column<double>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    Picture_1 = table.Column<string>(nullable: true),
+                    Picture_2 = table.Column<string>(nullable: true),
+                    Picture_3 = table.Column<string>(nullable: true),
+                    Picture_4 = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrainingClass", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -272,9 +272,9 @@ namespace GymsHouse.Data.Migrations
                 {
                     table.PrimaryKey("PK_ScheduleHeader", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_ScheduleHeader_GymsClass_ClassId",
+                        name: "FK_ScheduleHeader_TrainingClass_ClassId",
                         column: x => x.ClassId,
-                        principalTable: "GymsClass",
+                        principalTable: "TrainingClass",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -446,7 +446,7 @@ namespace GymsHouse.Data.Migrations
                 name: "ScheduleHeader");
 
             migrationBuilder.DropTable(
-                name: "GymsClass");
+                name: "TrainingClass");
 
             migrationBuilder.DropTable(
                 name: "Instructor");

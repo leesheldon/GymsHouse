@@ -18,7 +18,7 @@ namespace GymsHouse.Data
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<Center> Center { get; set; }
         public DbSet<Location> Location { get; set; }
-        public DbSet<GymsClass> GymsClass { get; set; }
+        public DbSet<TrainingClass> TrainingClass { get; set; }
         public DbSet<ScheduleHeader> ScheduleHeader { get; set; }
         public DbSet<ScheduleDetails> ScheduleDetails { get; set; }
         public DbSet<Instructor> Instructor { get; set; }
@@ -73,7 +73,7 @@ namespace GymsHouse.Data
                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<ScheduleHeader>()
-                .HasOne<GymsClass>(p => p.GymsClass)
+                .HasOne<TrainingClass>(p => p.GymsClass)
                 .WithMany(p => p.ScheduleHeaders)
                 .HasForeignKey(p => p.ClassId)
                 .OnDelete(DeleteBehavior.Restrict);

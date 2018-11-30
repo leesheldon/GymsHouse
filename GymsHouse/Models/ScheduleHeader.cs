@@ -31,7 +31,7 @@ namespace GymsHouse.Models
         public string ClassId { get; set; }
 
         [ForeignKey("ClassId")]
-        public virtual GymsClass GymsClass { get; set; }
+        public virtual TrainingClass GymsClass { get; set; }
 
         [Required]
         [Display(Name = "Instructor")]

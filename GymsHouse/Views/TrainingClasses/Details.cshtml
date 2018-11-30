@@ -1,0 +1,117 @@
+﻿@model GymsHouse.Models.TrainingClass
+
+@{
+    ViewData["Title"] = "Training Class Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="text-info">Training Class Details</h2>
+    <hr />
+    <div class="container row">
+        <div class="col-md-7">
+            @using (Html.BeginForm(method: FormMethod.Get, htmlAttributes: new { @class = "form-horizontal" }))
+            {<div class="form-group row">
+                    <label class="control-label col-sm-2" for="Name">Name:</label>
+                    <div class="col-sm-7">
+                        @Html.TextBoxFor(m => m.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" for="Description">Description:</label>
+                    <div class="col-sm-7">
+                        @Html.TextAreaFor(m => m.Description, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "height: 100px;" })
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" for="Price">Price:</label>
+                    <div class="col-sm-7">
+                        @Html.TextBoxFor(m => m.Price, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" for="Duration">Duration (Hours):</label>
+                    <div class="col-sm-7">
+                        @Html.TextBoxFor(m => m.Duration, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2" for="IsActive">Is Active:</label>
+                    <div class="col-sm-10">
+                        @Html.CheckBoxFor(m => m.IsActive, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "width: 20px; height: 20px;" })
+                    </div>
+                </div>
+
+            }
+        </div>
+
+        <div class="col-md-5">
+            <div id="carouselPics" class="carousel slide" data-ride="carousel" style="height: 70%;">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselPics" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselPics" data-slide-to="1"></li>
+                    <li data-target="#carouselPics" data-slide-to="2"></li>
+                    <li data-target="#carouselPics" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="@Model.Picture_1" alt="Pic 1">
+                        <div class="carousel-caption">
+                            <h3>Picture 1</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="@Model.Picture_2" alt="Pic 2">
+                        <div class="carousel-caption">
+                            <h3>Picture 2</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="@Model.Picture_3" alt="Pic 3">
+                        <div class="carousel-caption">
+                            <h3>Picture 3</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="@Model.Picture_4" alt="Pic 4">
+                        <div class="carousel-caption">
+                            <h3>Picture 4</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control" href="#carouselPics" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control" href="#carouselPics" data-slide="next" style="left: 350px;">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container row">
+        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+
+</div>
+
+
+
+

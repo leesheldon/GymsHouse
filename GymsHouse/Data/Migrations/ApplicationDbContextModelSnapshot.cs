@@ -187,36 +187,6 @@ namespace GymsHouse.Data.Migrations
                     b.ToTable("Coupon");
                 });
 
-            modelBuilder.Entity("GymsHouse.Models.GymsClass", b =>
-                {
-                    b.Property<string>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<double>("Duration");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<string>("Picture_1");
-
-                    b.Property<string>("Picture_2");
-
-                    b.Property<string>("Picture_3");
-
-                    b.Property<string>("Picture_4");
-
-                    b.Property<double>("Price");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("GymsClass");
-                });
-
             modelBuilder.Entity("GymsHouse.Models.Instructor", b =>
                 {
                     b.Property<string>("ID")
@@ -396,6 +366,36 @@ namespace GymsHouse.Data.Migrations
                     b.ToTable("ScheduleHeader");
                 });
 
+            modelBuilder.Entity("GymsHouse.Models.TrainingClass", b =>
+                {
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<double>("Duration");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Picture_1");
+
+                    b.Property<string>("Picture_2");
+
+                    b.Property<string>("Picture_3");
+
+                    b.Property<string>("Picture_4");
+
+                    b.Property<double>("Price");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("TrainingClass");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -564,7 +564,7 @@ namespace GymsHouse.Data.Migrations
 
             modelBuilder.Entity("GymsHouse.Models.ScheduleHeader", b =>
                 {
-                    b.HasOne("GymsHouse.Models.GymsClass", "GymsClass")
+                    b.HasOne("GymsHouse.Models.TrainingClass", "GymsClass")
                         .WithMany("ScheduleHeaders")
                         .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Restrict);

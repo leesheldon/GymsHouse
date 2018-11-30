@@ -74,11 +74,7 @@ namespace GymsHouse.Controllers
                     var locationFromDB = _db.Location.Find(vm.Location.ID);
                     string webRootPath = _hostingEnvironment.WebRootPath;
                     var files = HttpContext.Request.Form.Files;
-                    string locationsFolder = @"Photos\Locations";
-                    string uploadLocationsFolder = Path.Combine(webRootPath, locationsFolder);
-
-                    if (!System.IO.Directory.Exists(uploadLocationsFolder))
-                        System.IO.Directory.CreateDirectory(uploadLocationsFolder);
+                    string locationsFolder = @"Photos\Locations";                        
 
                     #region When user upload Picture 1
                     if (files[0] != null && files[0].Length > 0)
@@ -262,7 +258,7 @@ namespace GymsHouse.Controllers
             string locationsFolder = @"Photos\Locations";
 
             locationFromDB.Name = vm.Location.Name;
-            locationFromDB.CenterId = vm.Location.CenterId;
+            locationFromDB.CenterId = vm.Location.CenterId;            
 
             #region When user upload Picture 1
             if (files[0] != null && files[0].Length > 0)

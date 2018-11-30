@@ -91,7 +91,7 @@ namespace GymsHouse
             //seeder.SeedBusinessHours();
             //seeder.SeedMajors();
             //seeder.SeedInstructors();
-            //seeder.SeedGymsClasses();
+            //seeder.SeedTrainingClasses();
 
 
             app.UseMvc(routes =>

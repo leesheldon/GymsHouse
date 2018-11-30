@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymsHouse.Models
 {
-    public class GymsClass
+    public class TrainingClass
     {
         public string ID { get; set; }
 
