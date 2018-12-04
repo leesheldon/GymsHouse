@@ -27,6 +27,7 @@ namespace GymsHouse.Data
         public DbSet<Coupon> Coupon { get; set; }
         public DbSet<Major> Major { get; set; }
         public DbSet<MajorOfInstructor> MajorOfInstructor { get; set; }
+        public DbSet<Holidays> Holidays { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -73,7 +74,7 @@ namespace GymsHouse.Data
                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<ScheduleHeader>()
-                .HasOne<TrainingClass>(p => p.GymsClass)
+                .HasOne<TrainingClass>(p => p.TrainingClass)
                 .WithMany(p => p.ScheduleHeaders)
                 .HasForeignKey(p => p.ClassId)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -103,5 +104,6 @@ namespace GymsHouse.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
         }
+        
     }
 }

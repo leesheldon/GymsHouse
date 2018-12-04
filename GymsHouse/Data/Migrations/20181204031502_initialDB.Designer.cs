@@ -11,7 +11,7 @@ using System;
 namespace GymsHouse.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181130034248_initialDB")]
+    [Migration("20181204031502_initialDB")]
     partial class initialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -188,6 +188,23 @@ namespace GymsHouse.Data.Migrations
                     b.ToTable("Coupon");
                 });
 
+            modelBuilder.Entity("GymsHouse.Models.Holidays", b =>
+                {
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CenterId")
+                        .IsRequired();
+
+                    b.Property<DateTime>("Holiday");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CenterId");
+
+                    b.ToTable("Holidays");
+                });
+
             modelBuilder.Entity("GymsHouse.Models.Instructor", b =>
                 {
                     b.Property<string>("ID")
@@ -344,17 +361,31 @@ namespace GymsHouse.Data.Migrations
 
                     b.Property<DateTime>("EndDate");
 
+                    b.Property<bool>("Friday");
+
                     b.Property<string>("InstructorId")
                         .IsRequired();
 
                     b.Property<string>("LocationId")
                         .IsRequired();
 
+                    b.Property<bool>("Monday");
+
                     b.Property<string>("Notes");
+
+                    b.Property<bool>("Saturday");
 
                     b.Property<DateTime>("StartDate");
 
                     b.Property<string>("Status");
+
+                    b.Property<bool>("Sunday");
+
+                    b.Property<bool>("Thursday");
+
+                    b.Property<bool>("Tuesday");
+
+                    b.Property<bool>("Wednesday");
 
                     b.HasKey("ID");
 
@@ -513,6 +544,14 @@ namespace GymsHouse.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("GymsHouse.Models.Holidays", b =>
+                {
+                    b.HasOne("GymsHouse.Models.Center", "Center")
+                        .WithMany()
+                        .HasForeignKey("CenterId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("GymsHouse.Models.Instructor", b =>
                 {
                     b.HasOne("GymsHouse.Models.ApplicationUser", "ApplicationUser")
@@ -565,7 +604,7 @@ namespace GymsHouse.Data.Migrations
 
             modelBuilder.Entity("GymsHouse.Models.ScheduleHeader", b =>
                 {
-                    b.HasOne("GymsHouse.Models.TrainingClass", "GymsClass")
+                    b.HasOne("GymsHouse.Models.TrainingClass", "TrainingClass")
                         .WithMany("ScheduleHeaders")
                         .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Restrict);

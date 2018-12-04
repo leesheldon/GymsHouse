@@ -26,12 +26,27 @@ namespace GymsHouse.Models
 
         public enum EStatus { NA = 0, Waiting = 1, Started = 2, Paused = 3, Cancelled = 4, Finished = 5 }
 
+        public bool Monday { get; set; }
+
+        public bool Tuesday { get; set; }
+
+        public bool Wednesday { get; set; }
+
+        public bool Thursday { get; set; }
+
+        public bool Friday { get; set; }
+
+        public bool Saturday { get; set; }
+
+        public bool Sunday { get; set; }
+
+
         [Required]
         [Display(Name = "Class")]
         public string ClassId { get; set; }
 
         [ForeignKey("ClassId")]
-        public virtual TrainingClass GymsClass { get; set; }
+        public virtual TrainingClass TrainingClass { get; set; }
 
         [Required]
         [Display(Name = "Instructor")]

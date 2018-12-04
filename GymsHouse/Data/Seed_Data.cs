@@ -140,12 +140,12 @@ namespace GymsHouse.Data
 
         public void SeedTrainingClasses()
         {
-            var gymsClassData = System.IO.File.ReadAllText("Data/TrainingClassSeedData.json");
-            var gymsClasses = JsonConvert.DeserializeObject<List<TrainingClass>>(gymsClassData);
+            var trainingClassData = System.IO.File.ReadAllText("Data/TrainingClassSeedData.json");
+            var trainingClasses = JsonConvert.DeserializeObject<List<TrainingClass>>(trainingClassData);
 
-            foreach (var gymsClass in gymsClasses)
+            foreach (var trainingClass in trainingClasses)
             {
-                _db.TrainingClass.Add(gymsClass);
+                _db.TrainingClass.Add(trainingClass);
             }
 
             _db.SaveChanges();

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GymsHouse.Models.Holidays>
+
+@{
+    ViewData["Title"] = "Holidays List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-info">Holidays List</h2>
+
+<p>
+    @Html.Partial("_CreateButtonPartial")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Center")
+            </th>
+            <th>
+                @Html.DisplayName("Holidays")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Center.Name)
+                </td>
+                <td>
+                    @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.Holiday))
+                </td>
+                <td>
+                    @Html.Partial("_TableButtonPartial", item.ID)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

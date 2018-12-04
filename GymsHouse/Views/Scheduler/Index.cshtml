@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GymsHouse.Models.ScheduleHeader>
+
+@{
+    ViewData["Title"] = "Classes Scheduler List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-info">Classes Scheduler List</h2>
+
+<p>
+    @Html.Partial("_CreateButtonPartial")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Class")
+            </th>
+            <th>
+                @Html.DisplayName("Start Date")
+            </th>
+            <th>
+                @Html.DisplayName("End Date")
+            </th>
+            <th>
+                @Html.DisplayName("Location")
+            </th>
+            <th>
+                @Html.DisplayName("Status")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingClass.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -207,6 +207,25 @@ namespace GymsHouse.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Holidays",
+                columns: table => new
+                {
+                    ID = table.Column<string>(nullable: false),
+                    CenterId = table.Column<string>(nullable: false),
+                    Holiday = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Holidays", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Holidays_Center_CenterId",
+                        column: x => x.CenterId,
+                        principalTable: "Center",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Location",
                 columns: table => new
                 {
@@ -262,11 +281,18 @@ namespace GymsHouse.Data.Migrations
                     ClassId = table.Column<string>(nullable: false),
                     ClassSize = table.Column<int>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
+                    Friday = table.Column<bool>(nullable: false),
                     InstructorId = table.Column<string>(nullable: false),
                     LocationId = table.Column<string>(nullable: false),
+                    Monday = table.Column<bool>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
+                    Saturday = table.Column<bool>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<string>(nullable: true)
+                    Status = table.Column<string>(nullable: true),
+                    Sunday = table.Column<bool>(nullable: false),
+                    Thursday = table.Column<bool>(nullable: false),
+                    Tuesday = table.Column<bool>(nullable: false),
+                    Wednesday = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -360,6 +386,11 @@ namespace GymsHouse.Data.Migrations
                 column: "CenterId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Holidays_CenterId",
+                table: "Holidays",
+                column: "CenterId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Instructor_ApplicationUserId",
                 table: "Instructor",
                 column: "ApplicationUserId");
@@ -429,6 +460,9 @@ namespace GymsHouse.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Coupon");
+
+            migrationBuilder.DropTable(
+                name: "Holidays");
 
             migrationBuilder.DropTable(
                 name: "MajorOfInstructor");

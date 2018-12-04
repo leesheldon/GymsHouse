@@ -43,6 +43,12 @@
     <Compile Remove="Data\Migrations\20181129082339_initialDBSetup.Designer.cs" />
     <Compile Remove="Data\Migrations\20181130020726_initialDBSetup.cs" />
     <Compile Remove="Data\Migrations\20181130020726_initialDBSetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20181130034248_initialDB.cs" />
+    <Compile Remove="Data\Migrations\20181130034248_initialDB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20181204014416_initialDB.cs" />
+    <Compile Remove="Data\Migrations\20181204014416_initialDB.Designer.cs" />
+    <Compile Remove="Data\Migrations\20181204021150_initialDB.cs" />
+    <Compile Remove="Data\Migrations\20181204021150_initialDB.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

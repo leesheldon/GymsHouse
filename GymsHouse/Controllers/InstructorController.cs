@@ -213,8 +213,6 @@ namespace GymsHouse.Controllers
         }
 
 
-
-
         private async Task<string> GetMajorsNameListByInstructor(string instructorId)
         {
             var majorsList = await _db.MajorOfInstructor

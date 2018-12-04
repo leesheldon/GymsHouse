@@ -1,0 +1,46 @@
+﻿@model GymsHouse.Models.SchedulerViewModels.HolidaysAndCenterViewModel
+@using GymsHouse.Extensions
+
+@{
+    ViewData["Title"] = "Edit Holiday";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h2 class="text-info">Edit Holiday</h2>
+    <br />
+    @Html.Partial("_StatusMessage", Model.StatusMessage)
+    <hr />
+    @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.Holidays.ID)
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="Holidays.Holiday">Holiday:</label>
+            <div class="col-sm-8">
+                @Html.TextBoxFor(m => m.Holidays.Holiday, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @type = "Date" })
+                @Html.ValidationMessageFor(m => m.Holidays.Holiday, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="Holidays.CenterId">Center:</label>
+            <div class="col-sm-10">
+                @Html.DropDownListFor(m => m.Holidays.CenterId, Model.CenterList.ToSelectListItem(Model.Holidays.CenterId), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Holidays.CenterId, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary" />&nbsp;
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
