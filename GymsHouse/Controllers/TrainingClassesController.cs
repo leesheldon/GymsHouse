@@ -145,7 +145,7 @@ namespace GymsHouse.Controllers
         // GET: TrainingClasses/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
@@ -261,7 +261,7 @@ namespace GymsHouse.Controllers
         // GET: TrainingClasses/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }

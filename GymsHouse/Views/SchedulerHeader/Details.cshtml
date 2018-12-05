@@ -1,0 +1,100 @@
+﻿@model GymsHouse.Models.ScheduleHeader
+
+@{
+    ViewData["Title"] = "Schedule Header Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h2 class="text-info">Schedule Header Details</h2>
+    <br />
+
+    @using (Html.BeginForm(method: FormMethod.Get, htmlAttributes: new { @class = "form-horizontal" }))
+    {
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="TrainingClass.ID">Training Class:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.TrainingClass.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="Instructor.Name">Instructor:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.Instructor.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="Location.Name">Location:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.Location.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="StartDate">Start Date:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @type = "Date" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="EndDate">End Date:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.EndDate, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @type = "Date" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Days of Training:</label>            
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.DaysOfTraining, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="ClassSize">Class Size:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.ClassSize, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="StatusText">Status:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.StatusText, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="Notes">Notes:</label>
+            <div class="col-sm-7">
+                @Html.TextAreaFor(m => m.Notes, htmlAttributes: new { @class = "form-control", @disabled = "disabled", @style = "height: 100px;" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+
+        <br />
+        <div class="container row">
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    }
+</div>
+
+

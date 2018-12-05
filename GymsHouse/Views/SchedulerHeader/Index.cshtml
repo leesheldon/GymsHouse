@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<GymsHouse.Models.ScheduleHeader>
 
 @{
-    ViewData["Title"] = "Classes Scheduler List";
+    ViewData["Title"] = "Schedule Header List";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2 class="text-info">Classes Scheduler List</h2>
+<h2 class="text-info">Schedule Header List</h2>
 
 <p>
     @Html.Partial("_CreateButtonPartial")
@@ -39,16 +39,16 @@
                 @Html.DisplayFor(modelItem => item.TrainingClass.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
+                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.StartDate))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
+                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.EndDate))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location)
+                @Html.DisplayFor(modelItem => item.Location.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.StatusText)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

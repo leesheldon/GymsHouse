@@ -40,6 +40,8 @@ namespace GymsHouse.Models
         [NotMapped]
         public string MajorsNames { get; set; }
 
+        [NotMapped]
+        public string Name { get; set; }
 
     }
 }

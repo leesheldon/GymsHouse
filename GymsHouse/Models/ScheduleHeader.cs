@@ -66,5 +66,11 @@ namespace GymsHouse.Models
 
         public ICollection<MembersInClass> MembersInClasses { get; set; }
 
+        [NotMapped]
+        public string StatusText { get; set; }
+
+        [NotMapped]
+        public string DaysOfTraining { get; set; }
+
     }
 }

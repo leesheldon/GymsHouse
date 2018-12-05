@@ -1,0 +1,226 @@
+﻿@model GymsHouse.Models.SchedulerViewModels.SchedulerFormViewModel
+@using GymsHouse.Extensions
+
+@{
+    ViewData["Title"] = "Edit Schedule Header";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h2 class="text-info">Edit Schedule Header</h2>
+    <br />
+    @Html.Partial("_StatusMessage", Model.ErrorMessage)
+    <hr />
+    @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @onsubmit = "return onValidation()" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.ScheduleHeader.ID, htmlAttributes: new { @class = "form-control" })        
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.ClassId, "Class:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-7">
+                @Html.DropDownListFor(m => m.ScheduleHeader.ClassId, Model.TrainingClassesList.ToSelectListItem(Model.ScheduleHeader.ClassId), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.ClassId, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.InstructorId, "Instructor:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-7">
+                @Html.DropDownListFor(m => m.ScheduleHeader.InstructorId, Model.InstructorsList.ToSelectListItem(Model.ScheduleHeader.InstructorId), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.InstructorId, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.SelectedCenter, "Center:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-sm-7">
+                @Html.DropDownListFor(m => m.SelectedCenter, new SelectList(Model.CentersList, "Value", "Text", Model.SelectedCenter), htmlAttributes: new { @class = "form-control", @id = "CenterId" })
+                @Html.ValidationMessageFor(m => m.SelectedCenter, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.HiddenFor(m => m.ScheduleHeader.LocationId, htmlAttributes: new { @class = "form-control", @id = "ScheduleLocationId" })
+            @Html.LabelFor(x => Model.SelectedLocation, "Location:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-sm-7">
+                @Html.DropDownListFor(m => m.SelectedLocation, new SelectList(Model.LocationsList, "Value", "Text", Model.SelectedLocation), htmlAttributes: new { @class = "form-control", @id = "LocationId" })
+                @Html.ValidationMessageFor(m => m.SelectedLocation, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.StartDate, "Start Date:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.ScheduleHeader.StartDate, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @type = "Date" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.StartDate, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.EndDate, "End Date:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.ScheduleHeader.EndDate, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @type = "Date" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.EndDate, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.ClassSize, "Class Size:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.ScheduleHeader.ClassSize, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.ClassSize, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.Notes, "Notes:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-8">
+                @Html.TextAreaFor(m => m.ScheduleHeader.Notes, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.Notes, null, htmlAttributes: new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.Status, "Status:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-7">
+                @Html.DropDownListFor(m => m.ScheduleHeader.Status, Html.GetEnumSelectList<ScheduleHeader.EStatus>(), new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(x => Model.ScheduleHeader.DaysOfTraining, "Days of Training:", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-sm-10" id="chkBoxDaysId">
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Monday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Monday" class="custom-control-label">Monday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Monday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Tuesday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Tuesday" class="custom-control-label">Tuesday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Tuesday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Wednesday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Wednesday" class="custom-control-label">Wednesday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Wednesday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="clear: both;"></div>
+
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Thursday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Thursday" class="custom-control-label">Thursday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Thursday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Friday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Friday" class="custom-control-label">Friday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Friday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Saturday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Saturday" class="custom-control-label">Saturday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Saturday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="clear: both;"></div>
+
+                <div class="custom-control custom-checkbox" style="float: left; width: 150px;">
+                    @Html.CheckBoxFor(m => m.ScheduleHeader.Sunday, htmlAttributes: new { @class = "custom-control-input", @style = "width: 20px; height: 20px;", @onchange = "changedOnChkBox()" })
+                    <label for="ScheduleHeader.Sunday" class="custom-control-label">Sunday</label>
+                    @Html.ValidationMessageFor(m => m.ScheduleHeader.Sunday, null, htmlAttributes: new { @class = "text-danger" })
+                </div>
+
+                <div class="custom-control custom-checkbox" style="clear: both;"></div>
+                <span id="chkboxListErrorId" class="text-danger">Please select at least one.</span>
+            </div>
+
+        </div>
+
+
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary" />&nbsp;
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    }
+</div>
+
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(function () {
+            $("#chkboxListErrorId").hide();
+        });
+
+        function changedOnChkBox() {
+            var cnt = $("#chkBoxDaysId input:checked").length;
+            if (cnt < 1) {
+                $("#chkboxListErrorId").show();
+            }
+            else {
+                $("#chkboxListErrorId").hide();
+            }
+        }
+
+        function onValidation() {
+            var selectedLocation = $("#LocationId").val();
+            $("#ScheduleLocationId").val(selectedLocation);
+
+
+            var cnt = $("#chkBoxDaysId input:checked").length;
+            if (cnt < 1) {
+                $("#chkboxListErrorId").show();
+
+                return false;
+            }
+            else {
+                $("#chkboxListErrorId").hide();
+
+                return true;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $('#CenterId').change(function () {
+                getLocations();
+            });
+
+        });
+
+        function getLocations() {
+            var selectedCenter = $("#CenterId").val();
+                var locationsSelect = $('#LocationId');
+                var url = '@Url.Content("~/")' + "SchedulerHeader/GetLocationsByCenterId";
+                locationsSelect.empty();
+
+                if (selectedCenter != null && selectedCenter != '') {
+                    $.getJSON(url, { centerId: selectedCenter }, function (locations) {
+                        if (locations != null && !jQuery.isEmptyObject(locations))
+                        {
+                            locationsSelect.append($('<option/>', {
+                                value: null,
+                                text: "--- select location ---"
+                            }));
+
+                            $.each(locations, function (index, location) {
+                                locationsSelect.append($('<option/>', {
+                                    value: location.value,
+                                    text: location.text
+                                }));
+                            });
+                        };
+                    });
+                }
+        }
+
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
