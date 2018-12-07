@@ -36,7 +36,14 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TrainingClass.Name)
+                @if (item.ScheduleDetails.Count <= 0)
+                {
+                    <span style="color: deeppink;">@Html.DisplayFor(modelItem => item.TrainingClass.Name)</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.TrainingClass.Name)
+                }
             </td>
             <td>
                 @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.StartDate))
@@ -52,8 +59,9 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.ID">View</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                <a asp-controller="SchedulerDetails" asp-action="Index" asp-route-id="@item.ID">Details</a> |
             </td>
         </tr>
         }

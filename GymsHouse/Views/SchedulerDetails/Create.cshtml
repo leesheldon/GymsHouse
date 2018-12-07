@@ -1,0 +1,152 @@
+﻿@model GymsHouse.Models.SchedulerViewModels.SchedulerDetailsFormViewModel
+
+@{
+    ViewData["Title"] = "Create Schedule Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h2 class="text-info">Create Schedule Details</h2>
+    <br />
+    @Html.Partial("_StatusMessage", Model.ErrorMessage)
+    <hr />
+    @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @onsubmit = "return onValidation()" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.NewScheduleDetails.ScheduleHeaderId, htmlAttributes: new { @class = "form-control" })
+        @Html.HiddenFor(m => m.NewScheduleDetails.From, htmlAttributes: new { @class = "form-control", @id = "FromId" })
+        @Html.HiddenFor(m => m.NewScheduleDetails.To, htmlAttributes: new { @class = "form-control", @id = "ToId" })
+        @Html.HiddenFor(m => m.NewScheduleDetails.DayOfWeek, htmlAttributes: new { @class = "form-control", @id = "DayOfWeekId" })
+        @Html.HiddenFor(m => m.NewScheduleDetails.Duration_Hours, htmlAttributes: new { @class = "form-control", @id = "DurationHoursId" })
+        @Html.HiddenFor(m => m.NewScheduleDetails.Duration_Minutes, htmlAttributes: new { @class = "form-control", @id = "DurationMinutesId" })
+
+        <div class="form-group row">
+            <label class="control-label col-sm-3">From:</label>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(m => m.SelectedFromText, Model.FromList, htmlAttributes: new { @class = "form-control", @id = "SelectFromId" })
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-3">To:</label>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(m => m.SelectedToText, Model.ToList, htmlAttributes: new { @class = "form-control", @id = "SelectToId" })
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-3">Days of Training:</label>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(m => m.SelectedDaysText, Model.DaysList, htmlAttributes: new { @class = "form-control", @id = "DaysId" })
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+
+
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />&nbsp;
+            <a asp-action="Index" asp-route-id="@Model.ScheduleHeader.ID" class="btn btn-success">Back to List</a>
+        </div>
+    }
+</div>
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+       
+        function onValidation() {
+            var selectedFrom = $("#SelectFromId").val();
+            var selectedTo = $("#SelectToId").val();
+            var selectedDays = $("#DaysId").val();
+
+            if (selectedFrom === "-1") {
+                alert('Please select From!');                
+                return false;
+            }
+            
+            if (selectedTo === "-1") {
+                alert('Please select To!');
+                return false;
+            }
+
+            if (selectedDays === "-1") {
+                alert('Please select Days of Training!');
+                return false;
+            }
+
+            var strHours = "";
+            var strFrom = "01/01/2018";
+            var strTo = "01/01/2018";
+            var pp = "";
+
+            // From
+            pp = selectedFrom.substr(6, 2);
+            if (pp == "PM") {
+                var hh = parseInt(selectedFrom.substr(0, 2));
+                var mm = selectedFrom.substr(3, 2);
+                hh = hh + 12;
+
+                strHours = hh.toString() + ":" + mm + ":00";
+            }
+            else {
+                strHours = selectedFrom.substr(0, 5) + ":00";
+            }
+
+            strFrom = strFrom + " " + strHours;
+
+            // To
+            strHours = "";
+            pp = selectedTo.substr(6, 2);
+            if (pp == "PM") {
+                var hh = parseInt(selectedTo.substr(0, 2));
+                var mm = selectedTo.substr(3, 2);
+                hh = hh + 12;
+
+                strHours = hh.toString() + ":" + mm + ":00";
+            }
+            else {
+                strHours = selectedTo.substr(0, 5) + ":00";
+            }
+
+            strTo = strTo + " " + strHours;
+
+            dateFrom = new Date(strFrom);
+            dateTo = new Date(strTo);
+            
+                        
+            if (dateFrom > dateTo) {
+                alert('Please select To greater than From!');
+                return false;
+            }
+
+            var diff = dateTo.getTime() - dateFrom.getTime();
+            var diff_Hours = Math.floor(diff / 1000 / 60 / 60);
+            diff -= diff_Hours * 1000 * 60 * 60;
+            var diff_Minutes = Math.floor(diff / 1000 / 60);
+            
+            if (diff_Hours < 1) {
+                alert('The duration should be equal or greater than 1 hour.');
+                return false;
+            }
+
+            $("#DurationHoursId").val(diff_Hours);
+            $("#DurationMinutesId").val(diff_Minutes);
+
+            $("#FromId").val(selectedFrom);
+            $("#ToId").val(selectedTo);
+            $("#DayOfWeekId").val(selectedDays);
+            return true;
+        }
+    </script>
+
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

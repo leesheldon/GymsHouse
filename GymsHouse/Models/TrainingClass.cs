@@ -20,7 +20,7 @@ namespace GymsHouse.Models
         public double Price { get; set; }
 
         [Required]
-        public double Duration { get; set; }
+        public int Duration { get; set; }
 
         public bool IsActive { get; set; }
 

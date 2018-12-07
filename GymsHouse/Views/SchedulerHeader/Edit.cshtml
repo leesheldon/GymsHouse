@@ -16,7 +16,7 @@
     @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @onsubmit = "return onValidation()" }))
     {
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(m => m.ScheduleHeader.ID, htmlAttributes: new { @class = "form-control" })        
+        @Html.HiddenFor(m => m.ScheduleHeader.ID, htmlAttributes: new { @class = "form-control", @id = "HeaderId" })
         <div class="form-group row">
             @Html.LabelFor(x => Model.ScheduleHeader.ClassId, "Class:", htmlAttributes: new { @class = "control-label col-sm-2" })
             <div class="col-sm-7">
@@ -138,10 +138,11 @@
 
         </div>
 
-
         <br />
         <div class="form-group">
-            <input type="submit" value="Update" class="btn btn-primary" />&nbsp;
+            <input type="submit" asp-action="Edit" value="Update" class="btn btn-primary" />&nbsp;
+            <input type="submit" asp-action="CalculateEndDate" asp-route-id="@Model.ScheduleHeader.ID" value="Calculate End Date" class="btn btn-warning" />&nbsp;
+            @*<input type="button" onclick="calculateEndDate()" value="Calculate End Date" class="btn btn-warning" />&nbsp;*@
             <a asp-action="Index" class="btn btn-success">Back to List</a>
         </div>
     }
@@ -219,6 +220,27 @@
                     });
                 }
         }
+
+        @*function calculateEndDate() {
+            var selectedHeader = $("#HeaderId").val();
+            
+            var url = '@Url.Action("CalculateEndDate", "SchedulerHeader")';
+
+            $.ajax({
+                type: 'POST',
+                url: '/SchedulerHeader/CalculateEndDate?id=' + selectedHeader,
+                //data: { id: selectedHeader },
+                //contentType: "application/JSON",
+                success: function (data) {
+                    alert('Updating is successful.');
+                    console.log(data)
+                },
+                error: function () {
+                    alert('Updating is error.');
+                }
+            });
+                            
+        }*@
 
     </script>
 

@@ -23,12 +23,16 @@ namespace GymsHouse.Models
         [StringLength(10)]
         public string DayOfWeek { get; set; }
 
+        public int Duration_Hours { get; set; }
+
+        public int Duration_Minutes { get; set; }
+
         [Required]
         [Display(Name = "Schedule Header")]
         public string ScheduleHeaderId { get; set; }
 
         [ForeignKey("ScheduleHeaderId")]
         public virtual ScheduleHeader ScheduleHeader { get; set; }
-
+        
     }
 }

@@ -330,6 +330,10 @@ namespace GymsHouse.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(10);
 
+                    b.Property<int>("Duration_Hours");
+
+                    b.Property<int>("Duration_Minutes");
+
                     b.Property<string>("From")
                         .IsRequired()
                         .HasMaxLength(8);
@@ -405,7 +409,7 @@ namespace GymsHouse.Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<double>("Duration");
+                    b.Property<int>("Duration");
 
                     b.Property<bool>("IsActive");
 

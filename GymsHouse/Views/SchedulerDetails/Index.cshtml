@@ -1,0 +1,72 @@
+﻿@model GymsHouse.Models.SchedulerViewModels.SchedulerDetailsFormViewModel
+
+@{
+    ViewData["Title"] = "Schedule Details List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-info">Schedule Details List</h2>
+<br />
+<div class="form-horizontal">
+    <div class="form-group row">
+        @Html.LabelFor(x => x.ScheduleHeader.TrainingClass.Name, "Class:", htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.ScheduleHeader.TrainingClass.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+        </div>
+        @Html.LabelFor(x => x.ScheduleHeader.Location.Name, "Location:", htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.ScheduleHeader.Location.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(x => x.ScheduleHeader.Instructor.Name, "Instructor:", htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.ScheduleHeader.Instructor.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+        </div>
+        @Html.LabelFor(x => x.ScheduleHeader.DaysOfTraining, "Days of Training:", htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.TextBoxFor(m => m.ScheduleHeader.DaysOfTraining, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+</div>
+<br />
+
+<p>
+    <a asp-action="Create" asp-route-id="@Model.ScheduleHeader.ID" type="button" class="btn btn-primary">
+        <i class="fa fa-plus"></i>&nbsp; Create New
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("From")
+            </th>
+            <th>
+                @Html.DisplayName("To")
+            </th>
+            <th>
+                @Html.DisplayName("Day Of Week")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ScheduleDetailsList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.From)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.To)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayOfWeek)
+                </td>
+                @Html.Partial("_TableButtonPartial", item.ID)
+            </tr>
+        }
+    </tbody>
+</table>

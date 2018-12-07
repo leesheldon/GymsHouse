@@ -169,7 +169,7 @@ namespace GymsHouse.Data.Migrations
                 {
                     ID = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
-                    Duration = table.Column<double>(nullable: false),
+                    Duration = table.Column<int>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Picture_1 = table.Column<string>(nullable: true),
@@ -351,6 +351,8 @@ namespace GymsHouse.Data.Migrations
                 {
                     ID = table.Column<string>(nullable: false),
                     DayOfWeek = table.Column<string>(maxLength: 10, nullable: false),
+                    Duration_Hours = table.Column<int>(nullable: false),
+                    Duration_Minutes = table.Column<int>(nullable: false),
                     From = table.Column<string>(maxLength: 8, nullable: false),
                     ScheduleHeaderId = table.Column<string>(nullable: false),
                     To = table.Column<string>(maxLength: 8, nullable: false)

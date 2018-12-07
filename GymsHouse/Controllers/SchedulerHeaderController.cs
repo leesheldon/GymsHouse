@@ -28,6 +28,7 @@ namespace GymsHouse.Controllers
             var items = await _db.ScheduleHeader
                     .Include(p => p.TrainingClass)
                     .Include(p => p.Location)
+                    .Include(p => p.ScheduleDetails)
                     .ToListAsync();
 
             foreach(ScheduleHeader sh in items)
@@ -234,7 +235,7 @@ namespace GymsHouse.Controllers
             return View(vm);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, SchedulerFormViewModel vm)
         {
@@ -568,6 +569,103 @@ namespace GymsHouse.Controllers
 
             return locations;
         }
+
+        [HttpPost, ActionName("CalculateEndDate")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CalculateEndDate(string id)
+        {
+            bool canStop = false;
+            int usedHours = 0;
+            int usedMinutes = 0;
+
+            var sh = await _db.ScheduleHeader
+                            .Include(h => h.TrainingClass)
+                            .Include(h => h.Instructor)
+                            .Include(h => h.Instructor.ApplicationUser)
+                            .Include(h => h.Location)
+                            .Include(h => h.Location.Center)
+                            .SingleOrDefaultAsync(m => m.ID == id);
+
+
+            if (sh == null)
+            {
+                return NotFound();
+            }
+
+            int headerDuration = sh.TrainingClass.Duration;
+            DateTime runningDate = sh.StartDate;
+
+            List<ScheduleDetails> sdList = await _db.ScheduleDetails.Where(p => p.ScheduleHeaderId == sh.ID).ToListAsync();
+
+            List<Holidays> holidaysList = await _db.Holidays
+                                .Where(p => p.CenterId == sh.Location.CenterId
+                                            && (p.Holiday.Year == runningDate.Year
+                                                || p.Holiday.Year == runningDate.Year + 1))
+                                .ToListAsync();
+
+            if (sdList.Count < 1)
+            {
+                ViewData["ErrMessage"] = "Error: There is no Schedule Detail in this record.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (holidaysList.Count < 1)
+            {
+                ViewData["ErrMessage"] = "Error: There is no Holidays is set for this year.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            while (!canStop)
+            {
+                // Check if running date is holidays
+                Holidays holiday = holidaysList.SingleOrDefault(p => p.Holiday.Day == runningDate.Day
+                                     && p.Holiday.Month == runningDate.Month
+                                     && p.Holiday.Year == runningDate.Year);
+
+                if (holiday != null)
+                {
+                    runningDate = runningDate.AddDays(1);
+                    continue;
+                }
+
+                // Check if running date is training date
+                ScheduleDetails sd = sdList.SingleOrDefault(p => p.DayOfWeek == runningDate.DayOfWeek.ToString());
+                if (sd != null)
+                {
+                    usedHours = usedHours + sd.Duration_Hours;
+                    usedMinutes = usedMinutes + sd.Duration_Minutes;
+
+                    if (usedMinutes > 60)
+                    {
+                        // If used minutes is > 60, calculate to hours and then add into used hours
+                        usedHours = usedHours + (usedMinutes / 60);
+                        usedMinutes = usedMinutes % 60;
+                    }
+
+                    // Check if used hours is reached to the total hours of this class or not?
+                    if (usedHours < headerDuration)
+                    {
+                        if (headerDuration - usedHours <= 1)
+                        {
+                            sh.EndDate = runningDate;
+                            canStop = true;
+                        }
+                    }
+                    else
+                    {
+                        sh.EndDate = runningDate;
+                        canStop = true;
+                    }
+                }
+
+                runningDate = runningDate.AddDays(1);
+            }
+
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
 
     }
 }
