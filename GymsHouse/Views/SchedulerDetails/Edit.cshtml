@@ -1,50 +1,151 @@
-﻿@model GymsHouse.Models.ScheduleDetails
+﻿@model GymsHouse.Models.SchedulerViewModels.SchedulerDetailsFormViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Schedule Details";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
 
-<h4>ScheduleDetails</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="From" class="control-label"></label>
-                <input asp-for="From" class="form-control" />
-                <span asp-validation-for="From" class="text-danger"></span>
+<div class="container">
+    <br />
+    <h2 class="text-info">Edit Schedule Details</h2>
+    <br />
+    @Html.Partial("_StatusMessage", Model.ErrorMessage)
+    <hr />
+    @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @onsubmit = "return onValidation()" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.ScheduleDetails.ScheduleHeaderId, htmlAttributes: new { @class = "form-control" })
+        @Html.HiddenFor(m => m.ScheduleDetails.ID, htmlAttributes: new { @class = "form-control" })
+        @Html.HiddenFor(m => m.ScheduleDetails.From, htmlAttributes: new { @class = "form-control", @id = "FromId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.To, htmlAttributes: new { @class = "form-control", @id = "ToId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.DayOfWeek, htmlAttributes: new { @class = "form-control", @id = "DayOfWeekId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.Duration_Hours, htmlAttributes: new { @class = "form-control", @id = "DurationHoursId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.Duration_Minutes, htmlAttributes: new { @class = "form-control", @id = "DurationMinutesId" })
+
+        <div class="form-group row">
+            <label class="control-label col-sm-3">From:</label>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(m => m.SelectedFromText, Model.FromList, htmlAttributes: new { @class = "form-control", @id = "SelectFromId" })
             </div>
-            <div class="form-group">
-                <label asp-for="To" class="control-label"></label>
-                <input asp-for="To" class="form-control" />
-                <span asp-validation-for="To" class="text-danger"></span>
+            <div class="col-sm-4">
             </div>
-            <div class="form-group">
-                <label asp-for="DayOfWeek" class="control-label"></label>
-                <input asp-for="DayOfWeek" class="form-control" />
-                <span asp-validation-for="DayOfWeek" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-3">To:</label>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(m => m.SelectedToText, Model.ToList, htmlAttributes: new { @class = "form-control", @id = "SelectToId" })
             </div>
-            <div class="form-group">
-                <label asp-for="ScheduleHeaderId" class="control-label"></label>
-                <select asp-for="ScheduleHeaderId" class="form-control" asp-items="ViewBag.ScheduleHeaderId"></select>
-                <span asp-validation-for="ScheduleHeaderId" class="text-danger"></span>
+            <div class="col-sm-4">
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-3">Days of Training:</label>
+            <div class="col-sm-5">
+                @Html.DropDownListFor(m => m.SelectedDaysText, Model.DaysList, htmlAttributes: new { @class = "form-control", @id = "DaysId" })
             </div>
-        </form>
-    </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-primary" />&nbsp;
+            <a asp-action="Index" asp-route-id="@Model.ScheduleHeader.ID" class="btn btn-success">Back to List</a>
+        </div>
+    }
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
+    <script type="text/javascript">
+
+        function onValidation() {
+            var selectedFrom = $("#SelectFromId").val();
+            var selectedTo = $("#SelectToId").val();
+            var selectedDays = $("#DaysId").val();
+
+            if (selectedFrom === "-1") {
+                alert('Please select From!');
+                return false;
+            }
+
+            if (selectedTo === "-1") {
+                alert('Please select To!');
+                return false;
+            }
+
+            if (selectedDays === "-1") {
+                alert('Please select Days of Training!');
+                return false;
+            }
+
+            var strHours = "";
+            var strFrom = "01/01/2018";
+            var strTo = "01/01/2018";
+            var pp = "";
+
+            // From
+            pp = selectedFrom.substr(6, 2);
+            if (pp == "PM") {
+                var hh = parseInt(selectedFrom.substr(0, 2));
+                var mm = selectedFrom.substr(3, 2);
+                hh = hh + 12;
+
+                strHours = hh.toString() + ":" + mm + ":00";
+            }
+            else {
+                strHours = selectedFrom.substr(0, 5) + ":00";
+            }
+
+            strFrom = strFrom + " " + strHours;
+
+            // To
+            strHours = "";
+            pp = selectedTo.substr(6, 2);
+            if (pp == "PM") {
+                var hh = parseInt(selectedTo.substr(0, 2));
+                var mm = selectedTo.substr(3, 2);
+                hh = hh + 12;
+
+                strHours = hh.toString() + ":" + mm + ":00";
+            }
+            else {
+                strHours = selectedTo.substr(0, 5) + ":00";
+            }
+
+            strTo = strTo + " " + strHours;
+
+            dateFrom = new Date(strFrom);
+            dateTo = new Date(strTo);
+
+
+            if (dateFrom > dateTo) {
+                alert('Please select To greater than From!');
+                return false;
+            }
+
+            var diff = dateTo.getTime() - dateFrom.getTime();
+            var diff_Hours = Math.floor(diff / 1000 / 60 / 60);
+            diff -= diff_Hours * 1000 * 60 * 60;
+            var diff_Minutes = Math.floor(diff / 1000 / 60);
+
+            if (diff_Hours < 1) {
+                alert('The duration should be equal or greater than 1 hour.');
+                return false;
+            }
+
+            $("#DurationHoursId").val(diff_Hours);
+            $("#DurationMinutesId").val(diff_Minutes);
+
+            $("#FromId").val(selectedFrom);
+            $("#ToId").val(selectedTo);
+            $("#DayOfWeekId").val(selectedDays);
+            return true;
+        }
+    </script>
+
+
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

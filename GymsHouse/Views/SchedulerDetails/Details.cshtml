@@ -1,43 +1,73 @@
 ﻿@model GymsHouse.Models.ScheduleDetails
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details of Schedule Details";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>ScheduleDetails</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.From)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.From)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.To)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.To)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DayOfWeek)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DayOfWeek)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ScheduleHeader)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ScheduleHeader.ID)
-        </dd>
-    </dl>
+<div class="container">
+    <br />
+    <h2 class="text-info">Details of Schedule Details</h2>
+    <br />
+
+    @using (Html.BeginForm(method: FormMethod.Get, htmlAttributes: new { @class = "form-horizontal" }))
+    {
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="ScheduleHeader.TrainingClass.Name">Class:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.ScheduleHeader.TrainingClass.Name, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="From">From:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.From, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="To">To:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.To, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="DayOfWeek">Day of Training:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.DayOfWeek, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="ScheduleHeader.StartDate">Start Date:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.ScheduleHeader.StartDate, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @type = "Date" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2" for="ScheduleHeader.EndDate">End Date:</label>
+            <div class="col-sm-7">
+                @Html.TextBoxFor(m => m.ScheduleHeader.EndDate, "{0:yyyy-MM-dd}", htmlAttributes: new { @class = "form-control", @disabled = "disabled", @type = "Date" })
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <br />
+        <div class="container row">
+            <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" asp-route-id="@Model.ScheduleHeader.ID" class="btn btn-success">Back to List</a>
+        </div>
+    }
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+

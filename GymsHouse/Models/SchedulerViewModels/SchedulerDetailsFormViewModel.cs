@@ -13,7 +13,7 @@ namespace GymsHouse.Models.SchedulerViewModels
 
         public IEnumerable<ScheduleDetails> ScheduleDetailsList { get; set; }
 
-        public ScheduleDetails NewScheduleDetails { get; set; }
+        public ScheduleDetails ScheduleDetails { get; set; }
 
         
         public string SelectedFromText { get; set; }

@@ -107,14 +107,16 @@ namespace GymsHouse.Controllers
         // GET: SchedulerDetails/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
 
             var scheduleDetails = await _db.ScheduleDetails
-                .Include(s => s.ScheduleHeader)
-                .SingleOrDefaultAsync(m => m.ID == id);
+                                        .Include(s => s.ScheduleHeader)
+                                        .Include(s => s.ScheduleHeader.TrainingClass)
+                                        .SingleOrDefaultAsync(m => m.ID == id);
+
             if (scheduleDetails == null)
             {
                 return NotFound();
@@ -126,77 +128,10 @@ namespace GymsHouse.Controllers
         // GET: SchedulerDetails/Create
         public async Task<IActionResult> Create(string id)
         {
-            #region Schedule Header
-            if (string.IsNullOrEmpty(id))
-            {
-                return NotFound();
-            }
+            SchedulerDetailsFormViewModel vm = new SchedulerDetailsFormViewModel();
+            vm = await GenerateViewModelForForm(id);
 
-            var sh = await _db.ScheduleHeader
-                                .Include(h => h.TrainingClass)
-                                .Include(h => h.Instructor)
-                                .Include(h => h.Instructor.ApplicationUser)
-                                .Include(h => h.Location)
-                                .Include(h => h.Location.Center)
-                                .SingleOrDefaultAsync(m => m.ID == id);
-
-            if (sh == null)
-            {
-                return NotFound();
-            }
-
-            // Days of Training
-            string daysOfTraining = "";
-
-            if (sh.Monday)
-            {
-                daysOfTraining = "Monday, ";
-            }
-            if (sh.Tuesday)
-            {
-                daysOfTraining = daysOfTraining + "Tuesday, ";
-            }
-            if (sh.Wednesday)
-            {
-                daysOfTraining = daysOfTraining + "Wednesday, ";
-            }
-            if (sh.Thursday)
-            {
-                daysOfTraining = daysOfTraining + "Thursday, ";
-            }
-            if (sh.Friday)
-            {
-                daysOfTraining = daysOfTraining + "Friday, ";
-            }
-            if (sh.Saturday)
-            {
-                daysOfTraining = daysOfTraining + "Saturday, ";
-            }
-            if (sh.Sunday)
-            {
-                daysOfTraining = daysOfTraining + "Sunday, ";
-            }
-
-            if (!string.IsNullOrEmpty(daysOfTraining))
-            {
-                daysOfTraining = daysOfTraining.Substring(0, daysOfTraining.Length - 2);
-                sh.DaysOfTraining = daysOfTraining;
-            }
-
-            // Instructor's Name
-            sh.Instructor.Name = sh.Instructor.ApplicationUser.FirstName + " " + sh.Instructor.ApplicationUser.LastName;
-            #endregion
-            
-            SchedulerDetailsFormViewModel vm = new SchedulerDetailsFormViewModel
-            {
-                ScheduleHeader = sh,
-                NewScheduleDetails = new ScheduleDetails(),
-                FromList = PopulateTimesList(),
-                ToList = PopulateTimesList(),
-                DaysList = PopulateDaysOfTrainingList(sh)
-            };
-
-            vm.NewScheduleDetails.ScheduleHeaderId = id;
+            vm.ScheduleDetails.ScheduleHeaderId = vm.ScheduleHeader.ID;
 
             return View(vm);
         }
@@ -210,30 +145,30 @@ namespace GymsHouse.Controllers
         {            
             if (!ModelState.IsValid)
             {
-                vm = await GenerateViewModelBeforeReturn(vm.NewScheduleDetails.ScheduleHeaderId);
+                vm = await GenerateViewModelForForm(vm.ScheduleDetails.ScheduleHeaderId);
 
                 return View(vm);
             }
 
             var schedulerDetailsExists = _db.ScheduleDetails
-                       .Where(p => p.ScheduleHeaderId == vm.NewScheduleDetails.ScheduleHeaderId
-                               && p.DayOfWeek == vm.NewScheduleDetails.DayOfWeek
-                               && p.From == vm.NewScheduleDetails.From
-                               && p.To == vm.NewScheduleDetails.To)
+                       .Where(p => p.ScheduleHeaderId == vm.ScheduleDetails.ScheduleHeaderId
+                               && p.DayOfWeek == vm.ScheduleDetails.DayOfWeek
+                               && p.From == vm.ScheduleDetails.From
+                               && p.To == vm.ScheduleDetails.To)
                        .Count();
 
             if (schedulerDetailsExists > 0)
             {
                 ErrorMessage = "Error: This record has been already existed.";
 
-                vm = await GenerateViewModelBeforeReturn(vm.NewScheduleDetails.ScheduleHeaderId);
+                vm = await GenerateViewModelForForm(vm.ScheduleDetails.ScheduleHeaderId);
 
                 return View(vm);
             }
 
-            vm.NewScheduleDetails.From = vm.SelectedFromText;
-            vm.NewScheduleDetails.To = vm.SelectedToText;
-            vm.NewScheduleDetails.DayOfWeek = vm.SelectedDaysText;
+            vm.ScheduleDetails.From = vm.SelectedFromText;
+            vm.ScheduleDetails.To = vm.SelectedToText;
+            vm.ScheduleDetails.DayOfWeek = vm.SelectedDaysText;
 
             DateTime StartTime = DateTime.Parse(vm.SelectedFromText);
             DateTime EndTime = DateTime.Parse(vm.SelectedToText);
@@ -243,32 +178,41 @@ namespace GymsHouse.Controllers
             {
                 ErrorMessage = "Error: The duration should be equal or greater than 1 hour.";
 
-                vm = await GenerateViewModelBeforeReturn(vm.NewScheduleDetails.ScheduleHeaderId);
+                vm = await GenerateViewModelForForm(vm.ScheduleDetails.ScheduleHeaderId);
 
                 return View(vm);
             }
 
-            _db.ScheduleDetails.Add(vm.NewScheduleDetails);
+            _db.ScheduleDetails.Add(vm.ScheduleDetails);
             await _db.SaveChangesAsync();
                         
-            return RedirectToAction(nameof(Index), vm.ScheduleHeader.ID);
+            return RedirectToAction(nameof(Index), new { id = vm.ScheduleDetails.ScheduleHeaderId });
         }
 
         // GET: SchedulerDetails/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
 
-            var scheduleDetails = await _db.ScheduleDetails.SingleOrDefaultAsync(m => m.ID == id);
-            if (scheduleDetails == null)
+            var detailItem = await _db.ScheduleDetails.SingleOrDefaultAsync(m => m.ID == id);
+            if (detailItem == null)
             {
                 return NotFound();
             }
-            ViewData["ScheduleHeaderId"] = new SelectList(_db.ScheduleHeader, "ID", "ID", scheduleDetails.ScheduleHeaderId);
-            return View(scheduleDetails);
+
+            SchedulerDetailsFormViewModel vm = new SchedulerDetailsFormViewModel();
+            vm = await GenerateViewModelForForm(detailItem.ScheduleHeaderId);
+
+            vm.ScheduleDetails.ID = detailItem.ID;
+            vm.ScheduleDetails.ScheduleHeaderId = vm.ScheduleHeader.ID;
+            vm.SelectedFromText = detailItem.From;
+            vm.SelectedToText = detailItem.To;
+            vm.SelectedDaysText = detailItem.DayOfWeek;
+
+            return View(vm);
         }
 
         // POST: SchedulerDetails/Edit/5
@@ -276,48 +220,80 @@ namespace GymsHouse.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ID,From,To,DayOfWeek,ScheduleHeaderId")] ScheduleDetails scheduleDetails)
+        public async Task<IActionResult> Edit(string id, SchedulerDetailsFormViewModel vm)
         {
-            if (id != scheduleDetails.ID)
+            if (id != vm.ScheduleDetails.ID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _db.Update(scheduleDetails);
-                    await _db.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ScheduleDetailsExists(scheduleDetails.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                vm = await GenerateViewModelForForm(vm.ScheduleDetails.ScheduleHeaderId);
+
+                return View(vm);
             }
-            ViewData["ScheduleHeaderId"] = new SelectList(_db.ScheduleHeader, "ID", "ID", scheduleDetails.ScheduleHeaderId);
-            return View(scheduleDetails);
+
+            var detailsFromDB = _db.ScheduleDetails.Find(id);
+            if (detailsFromDB == null)
+            {
+                return NotFound();
+            }
+
+            var schedulerDetailsExists = _db.ScheduleDetails
+                       .Where(p => p.ScheduleHeaderId == vm.ScheduleDetails.ScheduleHeaderId
+                               && p.DayOfWeek == vm.ScheduleDetails.DayOfWeek
+                               && p.From == vm.ScheduleDetails.From
+                               && p.To == vm.ScheduleDetails.To
+                               && p.ID != vm.ScheduleDetails.ID)
+                       .Count();
+
+            if (schedulerDetailsExists > 0)
+            {
+                ErrorMessage = "Error: This record has been already existed.";
+
+                vm = await GenerateViewModelForForm(vm.ScheduleDetails.ScheduleHeaderId);
+
+                return View(vm);
+            }
+
+            detailsFromDB.From = vm.SelectedFromText;
+            detailsFromDB.To = vm.SelectedToText;
+            detailsFromDB.DayOfWeek = vm.SelectedDaysText;
+            detailsFromDB.Duration_Hours = vm.ScheduleDetails.Duration_Hours;
+            detailsFromDB.Duration_Minutes = vm.ScheduleDetails.Duration_Minutes;
+
+            DateTime StartTime = DateTime.Parse(vm.SelectedFromText);
+            DateTime EndTime = DateTime.Parse(vm.SelectedToText);
+            TimeSpan ts = EndTime - StartTime;
+
+            if (ts.Hours < 1)
+            {
+                ErrorMessage = "Error: The duration should be equal or greater than 1 hour.";
+
+                vm = await GenerateViewModelForForm(vm.ScheduleDetails.ScheduleHeaderId);
+
+                return View(vm);
+            }
+            
+            await _db.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Index), new { id = vm.ScheduleDetails.ScheduleHeaderId });
         }
 
         // GET: SchedulerDetails/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
 
             var scheduleDetails = await _db.ScheduleDetails
-                .Include(s => s.ScheduleHeader)
-                .SingleOrDefaultAsync(m => m.ID == id);
+                                        .Include(s => s.ScheduleHeader)
+                                        .Include(s => s.ScheduleHeader.TrainingClass)
+                                        .SingleOrDefaultAsync(m => m.ID == id);
+
             if (scheduleDetails == null)
             {
                 return NotFound();
@@ -331,10 +307,27 @@ namespace GymsHouse.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var scheduleDetails = await _db.ScheduleDetails.SingleOrDefaultAsync(m => m.ID == id);
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            var scheduleDetails = await _db.ScheduleDetails
+                                        .Include(s => s.ScheduleHeader)
+                                        .Include(s => s.ScheduleHeader.TrainingClass)
+                                        .SingleOrDefaultAsync(m => m.ID == id);
+
+            if (scheduleDetails == null)
+            {
+                return NotFound();
+            }
+
+            string headerId = scheduleDetails.ScheduleHeaderId;
+
             _db.ScheduleDetails.Remove(scheduleDetails);
             await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction(nameof(Index), new { id = headerId });
         }
 
         private bool ScheduleDetailsExists(string id)
@@ -446,7 +439,7 @@ namespace GymsHouse.Controllers
             return itemsList;
         }
 
-        private async Task<SchedulerDetailsFormViewModel> GenerateViewModelBeforeReturn(string headerId)
+        private async Task<SchedulerDetailsFormViewModel> GenerateViewModelForForm(string headerId)
         {
             #region Schedule Header
             var sh = await _db.ScheduleHeader
@@ -502,7 +495,7 @@ namespace GymsHouse.Controllers
             SchedulerDetailsFormViewModel vm = new SchedulerDetailsFormViewModel
             {
                 ScheduleHeader = sh,
-                NewScheduleDetails = new ScheduleDetails(),
+                ScheduleDetails = new ScheduleDetails(),
                 FromList = PopulateTimesList(),
                 ToList = PopulateTimesList(),
                 DaysList = PopulateDaysOfTrainingList(sh),

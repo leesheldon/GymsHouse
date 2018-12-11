@@ -15,12 +15,12 @@
     @using (Html.BeginForm(method: FormMethod.Post, htmlAttributes: new { @class = "form-horizontal", @onsubmit = "return onValidation()" }))
     {
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(m => m.NewScheduleDetails.ScheduleHeaderId, htmlAttributes: new { @class = "form-control" })
-        @Html.HiddenFor(m => m.NewScheduleDetails.From, htmlAttributes: new { @class = "form-control", @id = "FromId" })
-        @Html.HiddenFor(m => m.NewScheduleDetails.To, htmlAttributes: new { @class = "form-control", @id = "ToId" })
-        @Html.HiddenFor(m => m.NewScheduleDetails.DayOfWeek, htmlAttributes: new { @class = "form-control", @id = "DayOfWeekId" })
-        @Html.HiddenFor(m => m.NewScheduleDetails.Duration_Hours, htmlAttributes: new { @class = "form-control", @id = "DurationHoursId" })
-        @Html.HiddenFor(m => m.NewScheduleDetails.Duration_Minutes, htmlAttributes: new { @class = "form-control", @id = "DurationMinutesId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.ScheduleHeaderId, htmlAttributes: new { @class = "form-control" })
+        @Html.HiddenFor(m => m.ScheduleDetails.From, htmlAttributes: new { @class = "form-control", @id = "FromId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.To, htmlAttributes: new { @class = "form-control", @id = "ToId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.DayOfWeek, htmlAttributes: new { @class = "form-control", @id = "DayOfWeekId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.Duration_Hours, htmlAttributes: new { @class = "form-control", @id = "DurationHoursId" })
+        @Html.HiddenFor(m => m.ScheduleDetails.Duration_Minutes, htmlAttributes: new { @class = "form-control", @id = "DurationMinutesId" })
 
         <div class="form-group row">
             <label class="control-label col-sm-3">From:</label>
