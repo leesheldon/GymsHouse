@@ -14,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymsHouse.Controllers
 {
-    public class LocationController : Controller
+    public class AdminLocationController : Controller
     {
         private readonly ApplicationDbContext _db;
         private readonly IHostingEnvironment _hostingEnvironment;
@@ -22,7 +22,7 @@ namespace GymsHouse.Controllers
         [TempData]
         public string StatusMessage { get; set; }
 
-        public LocationController(ApplicationDbContext db, IHostingEnvironment hostingEnvironment)
+        public AdminLocationController(ApplicationDbContext db, IHostingEnvironment hostingEnvironment)
         {
             _db = db;
             _hostingEnvironment = hostingEnvironment;

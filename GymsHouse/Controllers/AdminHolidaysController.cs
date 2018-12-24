@@ -11,14 +11,14 @@ using GymsHouse.Models.SchedulerViewModels;
 
 namespace GymsHouse.Controllers
 {
-    public class HolidaysController : Controller
+    public class AdminHolidaysController : Controller
     {
         private readonly ApplicationDbContext _context;
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public HolidaysController(ApplicationDbContext context)
+        public AdminHolidaysController(ApplicationDbContext context)
         {
             _context = context;
         }

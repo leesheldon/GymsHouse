@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymsHouse.Controllers
 {
-    public class BusinessHoursController : Controller
+    public class AdminBusinessHoursController : Controller
     {
         private readonly ApplicationDbContext _db;
 
         [TempData]
         public string StatusMessage { get; set; }
 
-        public BusinessHoursController(ApplicationDbContext db)
+        public AdminBusinessHoursController(ApplicationDbContext db)
         {
             _db = db;
         }

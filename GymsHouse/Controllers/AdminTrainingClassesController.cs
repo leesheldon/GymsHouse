@@ -14,7 +14,7 @@ using GymsHouse.Extensions;
 
 namespace GymsHouse.Controllers
 {
-    public class TrainingClassesController : Controller
+    public class AdminTrainingClassesController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IHostingEnvironment _hostingEnvironment;
@@ -22,7 +22,7 @@ namespace GymsHouse.Controllers
         [TempData]
         public string StatusMessage { get; set; }
 
-        public TrainingClassesController(ApplicationDbContext context, IHostingEnvironment hostingEnvironment)
+        public AdminTrainingClassesController(ApplicationDbContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
             _hostingEnvironment = hostingEnvironment;

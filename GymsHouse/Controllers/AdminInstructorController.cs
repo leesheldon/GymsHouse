@@ -13,12 +13,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymsHouse.Controllers
 {
-    public class InstructorController : Controller
+    public class AdminInstructorController : Controller
     {
         private readonly ApplicationDbContext _db;
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        public InstructorController(ApplicationDbContext db, IHostingEnvironment hostingEnvironment)
+        public AdminInstructorController(ApplicationDbContext db, IHostingEnvironment hostingEnvironment)
         {
             _db = db;
             _hostingEnvironment = hostingEnvironment;

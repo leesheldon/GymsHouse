@@ -10,11 +10,11 @@ using GymsHouse.Models;
 
 namespace GymsHouse.Controllers
 {
-    public class MajorController : Controller
+    public class AdminMajorController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public MajorController(ApplicationDbContext context)
+        public AdminMajorController(ApplicationDbContext context)
         {
             _context = context;
         }

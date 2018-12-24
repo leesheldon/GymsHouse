@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymsHouse.Controllers
 {
-    public class SchedulerHeaderController : Controller
+    public class AdminSchedulerHeaderController : Controller
     {
         private readonly ApplicationDbContext _db;
 
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public SchedulerHeaderController(ApplicationDbContext db)
+        public AdminSchedulerHeaderController(ApplicationDbContext db)
         {
             _db = db;
         }
