@@ -36,13 +36,17 @@
         {
         <tr>
             <td>
-                @if (item.ScheduleDetails.Count <= 0)
+                @if (item.StatusText == "Finished")
                 {
-                    <span style="color: deeppink;">@Html.DisplayFor(modelItem => item.TrainingClass.Name)</span>
+                    <span style="color: darkgreen;">@Html.DisplayFor(modelItem => item.TrainingClass.Name)</span>
+                }
+                else if (item.StatusText == "Started")
+                {
+                    @Html.DisplayFor(modelItem => item.TrainingClass.Name)
                 }
                 else
                 {
-                    @Html.DisplayFor(modelItem => item.TrainingClass.Name)
+                    <span style="color: red;">@Html.DisplayFor(modelItem => item.TrainingClass.Name)</span>
                 }
             </td>
             <td>

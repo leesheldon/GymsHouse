@@ -71,6 +71,7 @@ namespace GymsHouse.Models
 
         [NotMapped]
         public string DaysOfTraining { get; set; }
+        
 
     }
 }

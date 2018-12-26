@@ -79,6 +79,7 @@
             @Html.LabelFor(x => Model.ScheduleHeader.Status, "Status:", htmlAttributes: new { @class = "control-label col-sm-2" })
             <div class="col-sm-7">
                 @Html.DropDownListFor(m => m.ScheduleHeader.Status, Html.GetEnumSelectList<ScheduleHeader.EStatus>(), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ScheduleHeader.Status, null, htmlAttributes: new { @class = "text-danger" })
             </div>
         </div>
 
@@ -189,7 +190,7 @@
             $('#CenterId').change(function () {
                 var selectedCenter = $("#CenterId").val();
                 var locationsSelect = $('#LocationId');
-                var url = '@Url.Content("~/")' + "SchedulerHeader/GetLocationsByCenterId";
+                var url = '@Url.Content("~/")' + "AdminSchedulerHeader/GetLocationsByCenterId";
                 locationsSelect.empty();
 
                 if (selectedCenter != null && selectedCenter != '') {

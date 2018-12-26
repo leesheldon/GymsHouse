@@ -1,0 +1,233 @@
+﻿@model GymsHouse.Models.SchedulerViewModels.ClassScheduleWeeklyViewModel
+
+<div id="fh5co-schedule" class="fh5co-bg" style="background-image: url('../../Photos/staminaStyle/Schedule/img_bg_2.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                <h2>Class Schedule</h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+
+            <div class="fh5co-tabs">
+                <ul class="fh5co-tab-nav">
+                    <li class="active"><a href="#" data-tab="1"><span class="visible-xs">S</span><span class="hidden-xs">Sunday</span></a></li>
+                    <li><a id="tabTest" href="#" data-tab="2"><span class="visible-xs">M</span><span class="hidden-xs">Monday</span></a></li>
+                    <li><a href="#" data-tab="3"><span class="visible-xs">T</span><span class="hidden-xs">Tuesday</span></a></li>
+                    <li><a href="#" data-tab="4"><span class="visible-xs">W</span><span class="hidden-xs">Wednesday</span></a></li>
+                    <li><a href="#" data-tab="5"><span class="visible-xs">Th</span><span class="hidden-xs">Thursday</span></a></li>
+                    <li><a href="#" data-tab="6"><span class="visible-xs">F</span><span class="hidden-xs">Friday</span></a></li>
+                    <li><a href="#" data-tab="7"><span class="visible-xs">S</span><span class="hidden-xs">Saturday</span></a></li>
+                </ul>
+                <!-- Tabs -->
+                <div class="fh5co-tab-content-wrap">
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="1">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnSunday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/exercise.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+                            @{
+                            int countEmptySunday = 8 - Model.ScheduleOnSunday.Count();
+
+                            for (int i = 1; i <= countEmptySunday; i++)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/exercise.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">...</span>
+                                    <h4>...</h4>
+                                    <small>...</small>
+                                </li>
+                            }
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="fh5co-tab-content tab-content" data-tab-content="2">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnMonday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/dumbbell.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+
+                            @{
+                                int countEmptyMonday = 8 - Model.ScheduleOnMonday.Count();
+
+                                for (int i = 1; i <= countEmptyMonday; i++)
+                                {
+                                    <li class="text-center">
+                                        <span><img src="~/Photos/staminaStyle/Schedule/dumbbell.svg" class="img-responsive" alt=""></span>
+                                        <span class="time">...</span>
+                                        <h4>...</h4>
+                                        <small>...</small>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="fh5co-tab-content tab-content" data-tab-content="3">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnTuesday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+                            @{
+                                int countEmptyTuesday = 8 - Model.ScheduleOnTuesday.Count();
+
+                                for (int i = 1; i <= countEmptyTuesday; i++)
+                                {
+                                    <li class="text-center">
+                                        <span><img src="~/Photos/staminaStyle/Schedule/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                        <span class="time">...</span>
+                                        <h4>...</h4>
+                                        <small>...</small>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="fh5co-tab-content tab-content" data-tab-content="4">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnWednesday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/exercise.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+
+                            @{
+                                int countEmptyWednesday = 8 - Model.ScheduleOnWednesday.Count();
+
+                                for (int i = 1; i <= countEmptyWednesday; i++)
+                                {
+                                    <li class="text-center">
+                                        <span><img src="~/Photos/staminaStyle/Schedule/exercise.svg" class="img-responsive" alt=""></span>
+                                        <span class="time">...</span>
+                                        <h4>...</h4>
+                                        <small>...</small>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="fh5co-tab-content tab-content" data-tab-content="5">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnThursday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+
+                            @{
+                                int countEmptyThursday = 8 - Model.ScheduleOnThursday.Count();
+
+                                for (int i = 1; i <= countEmptyThursday; i++)
+                                {
+                                    <li class="text-center">
+                                        <span><img src="~/Photos/staminaStyle/Schedule/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                        <span class="time">...</span>
+                                        <h4>...</h4>
+                                        <small>...</small>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="fh5co-tab-content tab-content" data-tab-content="6">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnFriday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/ballet.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+
+                            @{
+                                int countEmptyFriday = 8 - Model.ScheduleOnFriday.Count();
+
+                                for (int i = 1; i <= countEmptyFriday; i++)
+                                {
+                                    <li class="text-center">
+                                        <span><img src="~/Photos/staminaStyle/Schedule/ballet.svg" class="img-responsive" alt=""></span>
+                                        <span class="time">...</span>
+                                        <h4>...</h4>
+                                        <small>...</small>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="fh5co-tab-content tab-content" data-tab-content="7">
+                        <ul class="class-schedule">
+                            @foreach (var item in Model.ScheduleOnSaturday)
+                            {
+                                <li class="text-center">
+                                    <span><img src="~/Photos/staminaStyle/Schedule/dumbbell.svg" class="img-responsive" alt=""></span>
+                                    <span class="time">@item.From - @item.To</span>
+                                    <h4>@item.ScheduleHeader.TrainingClass.Name</h4>
+                                    <small>@item.ScheduleHeader.Instructor.ApplicationUser.FirstName @item.ScheduleHeader.Instructor.ApplicationUser.LastName</small>
+                                </li>
+                            }
+
+                            @{
+                                int countEmptySaturday = 8 - Model.ScheduleOnSaturday.Count();
+
+                                for (int i = 1; i <= countEmptySaturday; i++)
+                                {
+                                    <li class="text-center">
+                                        <span><img src="~/Photos/staminaStyle/Schedule/dumbbell.svg" class="img-responsive" alt=""></span>
+                                        <span class="time">...</span>
+                                        <h4>...</h4>
+                                        <small>...</small>
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log('ready');
+        var l = document.getElementById("tabTest");
+        console.log(l);
+        l.click();
+    })
+</script>

@@ -90,6 +90,8 @@ namespace GymsHouse.Controllers
             #region Schedule Details
             var detailsList = await _db.ScheduleDetails
                             .Include(s => s.ScheduleHeader)
+                            .OrderBy(p => p.DayOfWeek)
+                            .ThenBy(p => p.From)
                             .Where(p => p.ScheduleHeaderId == id)
                             .ToListAsync();
 

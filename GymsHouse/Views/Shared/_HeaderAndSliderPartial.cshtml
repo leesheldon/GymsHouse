@@ -31,7 +31,7 @@
                         <!-- Logo Area -->
                         <div class="logo-responsive col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="mml-logo">
-                                <a href="index.html"><img src="~/Photos/AspNetMVC_Logo.jpg" alt="mml-Logo"></a>
+                                <a asp-action="Index" asp-controller="Home"><img src="~/Photos/AspNetMVC_Logo.jpg" alt="mml-Logo"></a>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@
                             <div class="mml-menu">
                                 <nav id="cssmenu">
                                     <ul>
-                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li class="active"><a asp-action="Index" asp-controller="Home">Home</a></li>
                                         <li class="has-sub">
                                             <a href="classes.html">Classes</a>
                                             <ul>

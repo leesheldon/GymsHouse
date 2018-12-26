@@ -29,6 +29,7 @@ namespace GymsHouse.Controllers
                     .Include(p => p.TrainingClass)
                     .Include(p => p.Location)
                     .Include(p => p.ScheduleDetails)
+                    .OrderByDescending(p => p.StartDate)
                     .ToListAsync();
 
             foreach(ScheduleHeader sh in items)
@@ -37,7 +38,7 @@ namespace GymsHouse.Controllers
                 {
                     int enumIdx = int.Parse(sh.Status);
                     sh.StatusText = Enum.GetName(typeof(ScheduleHeader.EStatus), enumIdx);
-                }
+                }                
             }
 
             return View(items);
@@ -143,6 +144,15 @@ namespace GymsHouse.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SchedulerFormViewModel vm)
         {
+            int enumIdx = int.Parse(vm.ScheduleHeader.Status);
+            vm.ScheduleHeader.StatusText = Enum.GetName(typeof(ScheduleHeader.EStatus), enumIdx);
+
+            // User cannot set Status to Started in case there is no any Schedule Details
+            if (vm.ScheduleHeader.StatusText == ScheduleHeader.EStatus.Started.ToString())
+            {
+                ModelState.AddModelError("ScheduleHeader.Status", "We cannot select Started in case there is no any Schedule Details.");
+            }
+
             if (!ModelState.IsValid)
             {
                 var instructors = await _db.Instructor.Include(p => p.ApplicationUser).ToListAsync();
@@ -193,10 +203,12 @@ namespace GymsHouse.Controllers
                 };
 
                 return View(vm);
-            }
+            }            
 
             _db.ScheduleHeader.Add(vm.ScheduleHeader);
             await _db.SaveChangesAsync();
+
+            await CalculateEndDate(vm.ScheduleHeader.ID);
 
             return RedirectToAction(nameof(Index));
         }
@@ -243,7 +255,20 @@ namespace GymsHouse.Controllers
             {
                 return NotFound();
             }
-                        
+
+            int enumIdx = int.Parse(vm.ScheduleHeader.Status);
+            vm.ScheduleHeader.StatusText = Enum.GetName(typeof(ScheduleHeader.EStatus), enumIdx);
+            
+            // User cannot set Status to Started in case there is no any Schedule Details
+            // Or the number of Details not equal to the days of training in Header.
+            if (vm.ScheduleHeader.StatusText == ScheduleHeader.EStatus.Started.ToString())
+            {
+                if (!await CheckIfAnyMissingScheduleDetails(vm.ScheduleHeader))
+                {
+                    ModelState.AddModelError("ScheduleHeader.Status", "We cannot select Started in case there is no any Schedule Details.");
+                }
+            }
+
             if (!ModelState.IsValid)
             {
                 var location = _db.Location.Find(vm.ScheduleHeader.LocationId);
@@ -328,6 +353,8 @@ namespace GymsHouse.Controllers
             shFromDB.EndDate = vm.ScheduleHeader.EndDate;
 
             await _db.SaveChangesAsync();
+
+            await CalculateEndDate(shFromDB.ID);
 
             return RedirectToAction(nameof(Index));
         }
@@ -629,32 +656,36 @@ namespace GymsHouse.Controllers
                 }
 
                 // Check if running date is training date
-                ScheduleDetails sd = sdList.SingleOrDefault(p => p.DayOfWeek == runningDate.DayOfWeek.ToString());
-                if (sd != null)
+                foreach(ScheduleDetails sd in sdList)
                 {
-                    usedHours = usedHours + sd.Duration_Hours;
-                    usedMinutes = usedMinutes + sd.Duration_Minutes;
-
-                    if (usedMinutes > 60)
+                    if (sd.DayOfWeek == runningDate.DayOfWeek.ToString())
                     {
-                        // If used minutes is > 60, calculate to hours and then add into used hours
-                        usedHours = usedHours + (usedMinutes / 60);
-                        usedMinutes = usedMinutes % 60;
-                    }
+                        usedHours = usedHours + sd.Duration_Hours;
+                        usedMinutes = usedMinutes + sd.Duration_Minutes;
 
-                    // Check if used hours is reached to the total hours of this class or not?
-                    if (usedHours < headerDuration)
-                    {
-                        if (headerDuration - usedHours <= 1)
+                        if (usedMinutes > 60)
+                        {
+                            // If used minutes is > 60, calculate to hours and then add into used hours
+                            usedHours = usedHours + (usedMinutes / 60);
+                            usedMinutes = usedMinutes % 60;
+                        }
+
+                        // Check if used hours is reached to the total hours of this class or not?
+                        if (usedHours < headerDuration)
+                        {
+                            if (headerDuration - usedHours <= 1)
+                            {
+                                sh.EndDate = runningDate;
+                                canStop = true;
+                                break;
+                            }
+                        }
+                        else
                         {
                             sh.EndDate = runningDate;
                             canStop = true;
+                            break;
                         }
-                    }
-                    else
-                    {
-                        sh.EndDate = runningDate;
-                        canStop = true;
                     }
                 }
 
@@ -664,6 +695,48 @@ namespace GymsHouse.Controllers
             await _db.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<bool> CheckIfAnyMissingScheduleDetails(ScheduleHeader sh)
+        {
+            int countOfDaysTraining = 0;
+            int countOfDetails = await _db.ScheduleDetails.CountAsync(p => p.ScheduleHeaderId == sh.ID);
+
+            if (sh.Monday)
+            {
+                countOfDaysTraining += 1;
+            }
+            if (sh.Tuesday)
+            {
+                countOfDaysTraining += 1;
+            }
+            if (sh.Wednesday)
+            {
+                countOfDaysTraining += 1;
+            }
+            if (sh.Thursday)
+            {
+                countOfDaysTraining += 1;
+            }
+            if (sh.Friday)
+            {
+                countOfDaysTraining += 1;
+            }
+            if (sh.Saturday)
+            {
+                countOfDaysTraining += 1;
+            }
+            if (sh.Sunday)
+            {
+                countOfDaysTraining += 1;
+            }
+
+            if (countOfDetails < countOfDaysTraining)
+            {
+                return false;
+            }
+
+            return true;
         }
 
 
