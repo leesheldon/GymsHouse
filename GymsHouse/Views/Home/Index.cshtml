@@ -1,11 +1,78 @@
-﻿@{
+﻿@model GymsHouse.Models.TrainingInforViewModels.TrainingClassesViewModelcs
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_GymsHouseLayout.cshtml";
 }
 
 
-
 @Html.Partial("_HeaderAndSliderPartial")
 
-Testing
+
+
+<div class="wrapper">
+
+    <div class="mml-main-content">
+
+        <!-- ***************************************************************************************************************** -->
+        <!-- *************************************** Home Fitness Awesome Classes Area *************************************** -->
+        <!-- ***************************************************************************************************************** -->
+
+        <div class="mml-awesome-classes">
+
+            <!-- Section Title Starting Point -->
+
+            <div class="mml-section-title-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mml-section-title" style="padding-left: 80px;">
+                                <p>Join Our Fitness Programme</p>
+                                <h4><span class="title">Our awesome Classes</span><span class="title-bg"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Title Ending Point -->
+
+            <div class="mml-classes col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="mml-class-des">
+                    <div class="left wow">
+                        <img src="~/Photos/lesnarStyle/mml-class-image.png" alt="mml-class-img">
+                    </div>
+                    <div class="right">
+                        <h3>Classes</h3>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum erdolore eu fugiat nulla pariatur. Excepteur sint non proident, sunt.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="mml-classes col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <div class="mml-class-feat">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        @foreach (var classItem in Model.TrainingClassesList)
+                        {
+                            <div class="item mml-class-responsive">
+                                <div class="mml-class-feat-content">
+                                    <div class="mml-class-feat-content-image mml-class-feat-content-image-hover">
+                                        <img src="~/@classItem.Picture_1" alt="@classItem.Name">
+                                    </div>
+                                    <div class="mml-class-feat-content-info">
+                                        <a href="#">@classItem.Name</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
 @await Component.InvokeAsync("HomeClassSchedule")

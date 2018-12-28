@@ -365,7 +365,8 @@ namespace GymsHouse.Controllers
                 imageFile.CopyTo(fileStream);
             }
 
-            imageFilePath = @"\" + imageFilePath;
+            classFolder = classFolder.Replace(@"\", @"/");
+            imageFilePath = classFolder + @"/" + prevName + classFromDB.ID + extensionOfFile;
             if (idx == 0)
             {
                 classFromDB.Picture_1 = imageFilePath;
@@ -418,7 +419,8 @@ namespace GymsHouse.Controllers
                 System.IO.File.Copy(imageFilePath, newImageFilePath);
             }
 
-            newImageFilePath = @"\" + classFolder + @"\" + prevName + classFromDB.ID + ".png";
+            classFolder = classFolder.Replace(@"\", @"/");
+            newImageFilePath = classFolder + @"/" + prevName + classFromDB.ID + ".png";
 
             if (idx == 0)
             {
