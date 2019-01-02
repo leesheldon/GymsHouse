@@ -2,9 +2,11 @@
 
 @{
     ViewData["Title"] = "Training Class Details";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_GymsHouseLayout.cshtml";
 }
 
+
+@Html.Partial("_HeaderAndSliderPartial")
 
 <div class="container">
     <h2 class="text-info">Training Class Details</h2>
@@ -106,12 +108,8 @@
     </div>
     <br />
     <div class="container row">
-        <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary">Edit</a>
-        <a asp-action="Index" class="btn btn-success">Back to List</a>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-success">Back to List</a>
     </div>
 
 </div>
-
-
-
 

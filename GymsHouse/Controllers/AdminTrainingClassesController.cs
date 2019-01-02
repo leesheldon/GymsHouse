@@ -208,11 +208,6 @@ namespace GymsHouse.Controllers
             #region When user upload Picture 1
             if (files[0] != null && files[0].Length > 0)
             {
-                if (System.IO.File.Exists(webRootPath + classFromDB.Picture_1))
-                {
-                    System.IO.File.Delete(webRootPath + classFromDB.Picture_1);
-                }
-
                 SavingPhotoPathToDBAndWebRoot(classFolder, classFromDB, files[0], 0);
             }
             #endregion
@@ -220,11 +215,6 @@ namespace GymsHouse.Controllers
             #region When user upload Picture 2
             if (files[1] != null && files[1].Length > 0)
             {
-                if (System.IO.File.Exists(webRootPath + classFromDB.Picture_2))
-                {
-                    System.IO.File.Delete(webRootPath + classFromDB.Picture_2);
-                }
-
                 SavingPhotoPathToDBAndWebRoot(classFolder, classFromDB, files[1], 1);
             }
             #endregion
@@ -232,23 +222,13 @@ namespace GymsHouse.Controllers
             #region When user upload Picture 3
             if (files[2] != null && files[2].Length > 0)
             {
-                if (System.IO.File.Exists(webRootPath + classFromDB.Picture_3))
-                {
-                    System.IO.File.Delete(webRootPath + classFromDB.Picture_3);
-                }
-
                 SavingPhotoPathToDBAndWebRoot(classFolder, classFromDB, files[2], 2);
             }
             #endregion
 
             #region When user upload Picture 4
             if (files[3] != null && files[3].Length > 0)
-            {
-                if (System.IO.File.Exists(webRootPath + classFromDB.Picture_4))
-                {
-                    System.IO.File.Delete(webRootPath + classFromDB.Picture_4);
-                }
-
+            {                
                 SavingPhotoPathToDBAndWebRoot(classFolder, classFromDB, files[3], 3);
             }
             #endregion
@@ -289,27 +269,32 @@ namespace GymsHouse.Controllers
 
             // Delete Photos
             string webRootPath = _hostingEnvironment.WebRootPath;
+            string pathOfOldPic = string.IsNullOrEmpty(classFromDB.Picture_1) ? "" : @"\" + classFromDB.Picture_1.Replace(@"/", @"\");
 
-            if (System.IO.File.Exists(webRootPath + classFromDB.Picture_1))
+            if (System.IO.File.Exists(webRootPath + pathOfOldPic))
             {
-                System.IO.File.Delete(webRootPath + classFromDB.Picture_1);
+                System.IO.File.Delete(webRootPath + pathOfOldPic);
             }
 
-            if (System.IO.File.Exists(webRootPath + classFromDB.Picture_2))
+            pathOfOldPic = string.IsNullOrEmpty(classFromDB.Picture_2) ? "" : @"\" + classFromDB.Picture_2.Replace(@"/", @"\");
+            if (System.IO.File.Exists(webRootPath + pathOfOldPic))
             {
-                System.IO.File.Delete(webRootPath + classFromDB.Picture_2);
+                System.IO.File.Delete(webRootPath + pathOfOldPic);
             }
 
-            if (System.IO.File.Exists(webRootPath + classFromDB.Picture_3))
+            pathOfOldPic = string.IsNullOrEmpty(classFromDB.Picture_3) ? "" : @"\" + classFromDB.Picture_3.Replace(@"/", @"\");
+            if (System.IO.File.Exists(webRootPath + pathOfOldPic))
             {
-                System.IO.File.Delete(webRootPath + classFromDB.Picture_3);
+                System.IO.File.Delete(webRootPath + pathOfOldPic);
             }
 
-            if (System.IO.File.Exists(webRootPath + classFromDB.Picture_4))
+            pathOfOldPic = string.IsNullOrEmpty(classFromDB.Picture_4) ? "" : @"\" + classFromDB.Picture_4.Replace(@"/", @"\");
+            if (System.IO.File.Exists(webRootPath + pathOfOldPic))
             {
-                System.IO.File.Delete(webRootPath + classFromDB.Picture_4);
+                System.IO.File.Delete(webRootPath + pathOfOldPic);
             }
 
+            // Delete item
             _context.TrainingClass.Remove(classFromDB);
             await _context.SaveChangesAsync();
 
@@ -324,21 +309,32 @@ namespace GymsHouse.Controllers
         private void SavingPhotoPathToDBAndWebRoot(string classFolder, TrainingClass classFromDB, IFormFile imageFile, int idx)
         {
             string prevName = "";
+            string pathOfOldPic = "";
+
             if (idx == 0)
             {
                 prevName = "pic1_";
+                pathOfOldPic = classFromDB.Picture_1;
             }
             else if (idx == 1)
             {
                 prevName = "pic2_";
+                pathOfOldPic = classFromDB.Picture_2;
             }
             else if (idx == 2)
             {
                 prevName = "pic3_";
+                pathOfOldPic = classFromDB.Picture_3;
             }
             else
             {
                 prevName = "pic4_";
+                pathOfOldPic = classFromDB.Picture_4;
+            }
+
+            if (!string.IsNullOrEmpty(pathOfOldPic))
+            {
+                pathOfOldPic = pathOfOldPic.Replace(@"/", @"\");
             }
 
             string fileName = imageFile.FileName;
@@ -355,6 +351,13 @@ namespace GymsHouse.Controllers
 
             uploadLocation = Path.Combine(webRootPath, imageFilePath);
 
+            // Delete Old upload image file
+            if (System.IO.File.Exists(webRootPath + @"\" + pathOfOldPic))
+            {
+                System.IO.File.Delete(webRootPath + @"\" + pathOfOldPic);
+            }
+
+            // Delete New upload image file if it is existed
             if (System.IO.File.Exists(uploadLocation))
             {
                 System.IO.File.Delete(uploadLocation);
@@ -439,7 +442,6 @@ namespace GymsHouse.Controllers
                 classFromDB.Picture_4 = newImageFilePath;
             }
         }
-
 
     }
 }
